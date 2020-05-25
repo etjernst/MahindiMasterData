@@ -1,5 +1,7 @@
 # MahindiMaster
 
+![ResultsScreen](assets/screenshot3.png)
+
 ## Index
 - [Overview](#overview)
   - [Data cleaning](#data-cleaning)
