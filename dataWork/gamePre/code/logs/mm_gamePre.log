@@ -1,0 +1,1246 @@
+-----------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gameP
+> re/code/logs/mm_gamePre.log
+  log type:  text
+ opened on:  25 May 2020, 16:04:02
+
+. 
+. * Project:                      MahindiMaster
+. * Created:                      2020/05/01 - ET
+. * Last modified:        2020/05/01 - ET
+. * Stata                         v.16.1
+. 
+. 
+. * *******************************************************************
+> ***
+. * 1 (a) - Initialize form-specific parameters
+. * *******************************************************************
+> ***
+. 
+.         local                   csvfile "$gamePre/dataSets/raw/Mahind
+> iMaster.csv"
+
+.         local                   dtafile "$gamePre/dataSets/intermedia
+> te/MahindiMaster.dta"
+
+. 
+.         local                   repeat_groups_csv1 ""
+
+.         local                   repeat_groups_stata1 ""
+
+.         local                   repeat_groups_short_stata1 ""
+
+. 
+.         local                   note_fields1 "exp_1 exp_2 p_size_acre
+> st exp_explain exp_explain2 exp_graph exp_explain4 exp_explain5 exp_e
+> xplain6 exp_graph2 exp_explain7 exp_explain8 exp_graph3 confidence pu
+> rchase aspirations ordernote"
+
+.         local                   note_fields2 "order_exceed order_exce
+> ed2 order_total endnote formdef village_name deviceid subscriberid si
+> mid devicephonenum username caseid "
+
+. 
+.         local                   calcfields "exp_b b1 b2 b3 b4 fertype
+> l1lab fertypel2lab fertypel3lab exp_c c1 c2 c3 c4 lime exp_d d1 d2 d3
+>  d4 order_max order1_convert order2_convert order3_convert p_sizeha p
+> _sizema p_sizepa"
+
+.     
+.         local                   text_fields1 "duration comments villa
+> ge hhid hhid_verif hhid_div hhid_odd p_sizeha p_sizema p_sizepa p_siz
+> e_acres exp_b b1 b2 b3 b4 fertypeol1"
+
+.         local                   text_fields2 "fertypel1lab fertypeol2
+>  fertypel2lab fertypeol3 fertypel3lab exp_c c1 c2 c3 c4 lime exp_d d1
+>  d2 d3 d4 conf10 conf11 purchase1_name purchase1_location purchase1_l
+> andmark purchase1_distance"
+
+.         local                   text_fields3 "purchase1_other purchas
+> e2_name purchase2_location purchase2_landmark purchase2_distance purc
+> hase2_other purchase3_name purchase3_location purchase3_landmark purc
+> hase3_distance purchase3_other"
+
+.         local                   text_fields4 "purchase4_name purchase
+> 4_location purchase4_landmark purchase4_distance purchase4_other purc
+> hase5_name purchase5_location purchase5_landmark purchase5_distance p
+> urchase5_other purchase6_name"
+
+.         local                   text_fields5 "purchase6_location purc
+> hase6_landmark purchase6_distance purchase6_other order_max order1_co
+> nvert order2_convert order3_convert"
+
+. 
+.         local                   date_fields1 ""
+
+.         local                   datetime_fields1 "submissiondate star
+> ttime endtime"
+
+. 
+. * *******************************************************************
+> ***
+. * 1 (b) - Import data from primary .csv file
+. * *******************************************************************
+> ***
+.         insheet using "`csvfile'", names clear
+(191 vars, 196 obs)
+
+. 
+. * Drop extra table-list columns
+.                 cap drop reserved_name_for_field_*
+
+.                 cap drop generated_table_list_lab*
+
+. 
+. * Drop note & calculate fields (since they don't contain any real dat
+> a)
+.         forvalues i = 1/100 {
+  2.                 if "`note_fields`i''" ~= "" {
+  3.                         drop `note_fields`i''
+  4.                 }
+  5.         }
+
+.    
+. * Format date and date/time fields
+.         forvalues i = 1/100 {
+  2.                 if "`datetime_fields`i''" ~= "" {
+  3.                         foreach dtvarlist in `datetime_fields`i'' 
+> {
+  4.                                 foreach dtvar of varlist `dtvarlis
+> t' {
+  5.                                         tempvar tempdtvar
+  6.                                         rename `dtvar' `tempdtvar'
+  7.                                         gen double `dtvar'=.
+  8.                                         cap replace `dtvar'=clock(
+> `tempdtvar',"MDYhms",2025)
+  9.                                         * automatically try withou
+> t seconds, just in case
+.                                         cap replace `dtvar'=clock(`te
+> mpdtvar',"MDYhm",2025) if `dtvar'==. & `tempdtvar'~=""
+ 10.                                         format %tc `dtvar'
+ 11.                                         drop `tempdtvar'
+ 12.                                 }
+ 13.                         }
+ 14.                 }
+ 15.                 if "`date_fields`i''" ~= "" {
+ 16.                         foreach dtvarlist in `date_fields`i'' {
+ 17.                                 foreach dtvar of varlist `dtvarlis
+> t' {
+ 18.                                         tempvar tempdtvar
+ 19.                                         rename `dtvar' `tempdtvar'
+ 20.                                         gen double `dtvar'=.
+ 21.                                         cap replace `dtvar'=date(`
+> tempdtvar',"MDY",2025)
+ 22.                                         format %td `dtvar'
+ 23.                                         drop `tempdtvar'
+ 24.                                 }
+ 25.                         }
+ 26.                 }
+ 27.         }
+(196 missing values generated)
+(196 missing values generated)
+(196 missing values generated)
+
+. 
+. * Ensure that text fields are imported as strings (with "" for missin
+> g values)
+. * Note that we treat calculate fields as text
+. 
+.         tempvar ismissingvar
+
+.         quietly: gen `ismissingvar'=.
+
+.         forvalues i = 1/100 {
+  2.                 if "`text_fields`i''" ~= "" {
+  3.                         foreach svarlist in `text_fields`i'' {
+  4.                                 foreach stringvar of varlist `svar
+> list' {
+  5.                                         quietly: replace `ismissin
+> gvar'=.
+  6.                                         quietly: cap replace `ismi
+> ssingvar'=1 if `stringvar'==.
+  7.                                         cap tostring `stringvar', 
+> format(%100.0g) replace
+  8.                                         cap replace `stringvar'=""
+>  if `ismissingvar'==1
+  9.                                 }
+ 10.                         }
+ 11.                 }
+ 12.         }
+
+.         quietly: drop `ismissingvar'
+
+. 
+. * Drop uninformative variables (missing because tablets were not GSM)
+. * and there were no comments
+.     cap drop    hhid_verif 
+
+.     cap drop    hhid_div 
+
+.     cap drop    hhid_odd
+
+.     cap drop    `calcfields'
+
+. 
+.     * Check if there are any saved comments, otherwise drop 
+.     capture {
+
+. 
+. * *******************************************************************
+> ***
+. * 1 (c) - Consolidate ID variable
+. * *******************************************************************
+> ***
+. 
+. * Consolidate unique ID into "key" variable
+.         replace             key = instanceid if key==""
+(0 real changes made)
+
+.         drop                instanceid
+
+. 
+. * *******************************************************************
+> ***
+. * 1 (d) - Import data from primary .csv file
+. * *******************************************************************
+> ***    
+. 
+. * Remove PID
+.     local               pid enum county
+
+.     
+. * The purchase location descriptions are borderline, but removing to 
+> be sure
+.     local               pid = "`pid' purchase?_landmark purchase?_oth
+> er"
+
+.     local               pid = "`pid' purchase?_location purchase?_nam
+> e"
+
+.     
+. * Encode all the PID
+.     foreach             pidvar of varlist `pid' {
+  2.         di              `pidvar'
+  3.         egen            `pidvar'_code = group(`pidvar')
+  4.     }
+1
+3
+
+(56 missing values generated)
+
+(176 missing values generated)
+
+(195 missing values generated)
+
+(81 missing values generated)
+
+(177 missing values generated)
+
+(186 missing values generated)
+
+(57 missing values generated)
+
+(176 missing values generated)
+
+(195 missing values generated)
+
+(81 missing values generated)
+
+(177 missing values generated)
+
+(186 missing values generated)
+
+(56 missing values generated)
+
+(176 missing values generated)
+
+(195 missing values generated)
+
+(81 missing values generated)
+
+(177 missing values generated)
+
+(186 missing values generated)
+
+(56 missing values generated)
+
+(176 missing values generated)
+
+(195 missing values generated)
+
+(81 missing values generated)
+
+(177 missing values generated)
+
+(186 missing values generated)
+
+. 
+. * Drop PID
+.     drop                `pid' 
+
+.     
+.         * label variables
+.         label               variable key "Unique submission ID"
+
+.         cap label           variable submissiondate "Date/time submit
+> ted"
+
+. 
+.         label               variable consent "Consent?"
+
+.         note                consent: "Do you give your consent to par
+> ticipate?"
+
+.         
+.     cap label           define consent 1 "Yes" 0 "No"
+
+.         label               values consent consent
+
+. 
+.         label               variable enum "Enumerator"
+
+. 
+.         label               variable county ///
+>                         "County"
+
+.         cap label           define county 3 "Homabay" 9 "Migori"
+
+.         label               values county county
+
+. 
+.         label               variable village "Village"
+
+. 
+.         label               variable hhid "Household ID"
+
+.     destring            hhid, replace
+hhid: all characters numeric; replaced as int
+
+.     
+.         label               variable p_size_unit "Area unit for sampl
+> ed field"
+
+.         
+.     label               define p_size_unit                          /
+> //
+>                         1 "acres" 2 "hectares" 3 "meters²" 4 "paces"
+
+.         label               values p_size_unit p_size_unit
+
+. 
+.         label               variable p_sizea "Area of sampled field (
+> acres)?"
+
+. 
+.         label               variable p_sizeh "Area of sampled field (
+> hectares)?"
+
+. 
+.         label               variable p_sizem "Area of sampled field (
+> m^2)?"
+
+. 
+.         label               variable p_sizep1 ///
+>                         "How many paces for the width of the sampled 
+> field?"
+
+.     label               variable p_sizep2 ///
+>                         "How many paces for the length of the sampled
+>  field?"
+
+. 
+.     label               variable p_size_acres "Area of sampled field 
+> in acres?"
+
+. 
+.         label               variable exp_3  ///
+>                         "Expectation: Worst possible maize yield, no 
+> fertilizer"
+
+.         note                exp_3:  ///
+>     "Now please think of this maize field on which we took soil sampl
+> es a few months ago.  Imagine all the reasons why you might have a ve
+> ry bad maize harvest -- the worst that you can imagine for the long r
+> ains. In this WORST YEAR that you can imagine, how many bags do you t
+> hink that you would harvest IF YOU APPLIED NO FERTILIZER of any kind?
+> "
+
+. 
+.         label               variable exp_4  ///
+>                         "Expectation: Best possible maize yield, no f
+> ertilizer"
+
+.         note                exp_4: "Imagine all the reasons why you m
+> ight have a very, very good maize harvest on this field -- the best t
+> hat you can imagine for the long rains. In this BEST YEAR that you ca
+> n imagine, how many bags do you think that you would harvest IF YOU A
+> PPLIED NO FERTILIZER of any kind?"
+
+. 
+.         label               variable exp_b1 ///
+>                         "Number of beans in first interval, no fertil
+> izer"
+
+. 
+.         label               variable exp_b2 ///
+>                         "Number of beans in second interval, no ferti
+> lizer"
+
+. 
+.         label               variable exp_b3 ///
+>                         "Number of beans in third interval, no fertil
+> izer"
+
+. 
+.         label               variable exp_b4 ///
+>                         "Number of beans in fourth interval, no ferti
+> lizer"
+
+. 
+.         label               variable exp_b5 ///
+>                         "Number of beans in fifth interval, no fertil
+> izer"
+
+. 
+.         label               variable ffertl ///
+>                         "Have you applied fertilizer on this field si
+> nce 2013?"
+
+.         
+.     label               define ffertl 1 "Yes" 0 "No"
+
+.         label               values ffertl ffertl
+
+. 
+.         label               variable fertypel1  ///
+>                         "First type of fertilizer applied to this fie
+> ld?"
+
+. 
+.         label               variable fertypeol1 "Other, specify"
+
+. 
+.         label               variable fertypel2   ///
+>                         "Second type of fertilizer applied to this fi
+> eld?"
+
+.                         
+.         label               variable fertypeol2 "Other, specify"
+
+. 
+.         label               variable fertypel3   ///
+>                         "Third type of fertilizer applied to this fie
+> ld?"
+
+.                         
+.         label               variable fertypeol3 "Other, specify"
+
+. 
+.     label               define fertype 0 "None" 1 "ASN (26:0:0)" 2 "C
+> AN (26:0:0)" 3 "compost" 4 "DAP" 5 "DAP + CAN" 6 "DSP" 7 "foliar feed
+> s" 8 "kero green" 9 "magmax lime" 10 "manure" 11 "MAP" 12 "mavuno-bas
+> al" 13 "Mavuno-top dress." 14 "mijingu 1100" 15 "NPK (17:17:0)" 16 "N
+> PK (20:10:10)" 17 "NPK (20:20:0)" 18 "NPK (23:23:23)" 19 "NPK (25:5:+
+> 5S)" 20 "NPK 14:14:20" 21 "NPK(15:15:15)" 22 "NPK(17:17:17)" 23 "NPK(
+> 18:14:12)" 24 "NPK(23:23:0)" 25 "rock-phosphate" 26 "SA (21:0:0)" 27 
+> "SSP" 28 "TSP" 29 "UREA (46:0:0)" 30 "UREA+CAN" 31 "Other, specify"
+
+.         
+.     label               values fertypel1 fertype
+
+.         label               values fertypel2 fertype
+
+.         label               values fertypel3 fertype
+
+. 
+.         label               variable fertamtl1 "Amount of 1st type of
+>  fertilizer?"
+
+.         label               variable fertunitl1b "Unit of measurement
+>  (1st fert)"
+
+. 
+.         label               variable fertamtl2  "Amount of 2nd type o
+> f fertilizer?"
+
+.         label               variable fertunitl2b "Unit of measurement
+>  (2nd fert)"
+
+. 
+.         label               variable fertamtl3  "Amount of 3nd type o
+> f fertilizer?"
+
+.         label               variable fertunitl3 "Unit of measurement 
+> (3nd fert)"
+
+. 
+.         label               define fertunit 1 "kg" 2 "litre" 3 "tonne
+> s" 4 "1 kg bags" 5 "2 kg bags" 6 "5 kg bags" 7 "10 kg bags" 8 "25 kg 
+> bags" 9 "50 kg bags" 10 "90 kg bags" 11 "canter" 12 "cart (hand/donke
+> y)" 13 "debe" 14 "pickup" 15 "wheelbarrow" 16 "gorogoro"
+
+.         
+.     label               values fertunitl1b fertunit
+
+.         label               values fertunitl2b fertunit
+
+.         label               values fertunitl3 fertunit
+
+. 
+.         label variable fertunitl3 "Unit of measurement (3rd fert)"
+
+. 
+.     
+.         label               variable exp_5  ///
+>                         "Expectation: Worst possible maize yield, wit
+> h fertilizer"
+
+.     note exp_5: "Now please think of this maize field on which we too
+> k soil samples a few months ago.  Imagine all the reasons why you mig
+> ht have a very bad maize harvest -- the worst that you can imagine fo
+> r the long rains. In this WORST YEAR that you can imagine, how many b
+> ags do you think that you would harvest IF YOU APPLIED THE FERTILIZER
+>  amounts you just told us about?"
+
+. 
+.         label               variable exp_6  ///
+>                         "Expectation: Best possible maize yield, with
+>  fertilizer"       
+
+.     note exp_6: "Imagine all the reasons why you might have a very, v
+> ery good maize harvest on this field -- the best that you can imagine
+>  for the long rains. In this BEST YEAR that you can imagine, how many
+>  bags do you think that you would harvest IF YOU APPLIED THE FERTILIZ
+> ER amounts you just told us about?"
+
+. 
+.         label               variable exp_c1 ///
+>                         "Number of beans in first interval, with fert
+> ilizer"
+
+. 
+.         label               variable exp_c2 ///
+>                         "Number of beans in second interval, with fer
+> tilizer"
+
+. 
+.         label               variable exp_c3 ///
+>                         "Number of beans in third interval, with fert
+> ilizer"
+
+. 
+.         label               variable exp_c4 ///
+>                         "Number of beans in fourth interval, with fer
+> tilizer"
+
+. 
+.         label               variable exp_c5 ///
+>                         "Number of beans in fifth interval, with fert
+> ilizer"
+
+. 
+.         label               variable exp_probe ///
+>                         "Is fertilizer expectations posing a challeng
+> e?"
+
+.         note                exp_probe: ///
+>                         "Enumerator: please probe as much as you can,
+>  but if the farmer insists they have NO IDEA, you can select 'no idea
+> '"
+
+.         label               define exp_probe 0 "Farmer has no idea" 1
+>  "Proceed"
+
+.         label               values exp_probe exp_probe
+
+. 
+.         label               variable exp_7  ///
+>                         "Expectation: Worst possible maize yield, fer
+> tilizer+lime"                        
+
+.     note exp_7: "Now please think of this maize field on which we too
+> k soil samples a few months ago.  Imagine all the reasons why you mig
+> ht have a very bad maize harvest -- the worst that you can imagine fo
+> r the long rains. In this WORST YEAR that you can imagine, how many b
+> ags do you think that you would harvest IF YOU APPLIED THE FERTILIZER
+>  amounts you just told us about and ALSO APPLY \${lime} kg of LIME to
+>  this field?"
+
+. 
+.     label               variable exp_8  ///
+>                         "Expectation: Best possible maize yield, fert
+> ilizer+lime"
+
+.         note                exp_8: "Imagine all the reasons why you m
+> ight have a very, very good maize harvest on this field -- the best t
+> hat you can imagine for the long rains. In this BEST YEAR that you ca
+> n imagine, how many bags do you think that you would harvest IF YOU A
+> PPLIED THE FERTILIZER amounts you just told us about and ALSO APPLY \
+> ${lime} kg of LIME to this field?"
+
+. 
+.         label               variable exp_d1 ///
+>                         "Number of beans in first interval, fertilize
+> r+lime"
+
+. 
+.         label               variable exp_d2 ///
+>                         "Number of beans in second interval, fertiliz
+> er+lime"
+
+. 
+.         label               variable exp_d3 ///
+>                         "Number of beans in third interval, fertilize
+> r+lime"
+
+. 
+.         label               variable exp_d4 ///
+>                         "Number of beans in fourth interval, fertiliz
+> er+lime"
+
+. 
+.         label               variable exp_d5 ///
+>                         "Number of beans in fifth interval, fertilize
+> r+lime"
+
+. 
+.         label               variable conf1 ///
+>                         "Answer more questions than other village far
+> mers?"
+
+.         note                conf1: "Do you think you will answer more
+>  questions correctly than other farmers in your village?"
+
+.         
+.     label               define conf1 ///
+>     1 "A lot more than others" 2 "A little more than others"    ///
+>     3 "The same as others" 4 "A little less than others"        ///
+>     5 "A lot less than others"
+
+.         label               values conf1 conf1
+
+. 
+.         label               variable conf2  ///
+>                         "Hybrid success depends on the environment or
+>  place"
+
+.         note                conf2: "Most hybrid seeds work better in 
+> some environments or places than in others."
+
+.         label               define conf2 0 "False" 1 "True" 31 "Don't
+>  know"
+
+.         label               values conf2 conf2
+
+. 
+.         label               variable conf3 ///
+>                         "How do yields of recycled hybrids compare to
+>  purchased hybrids?"
+
+.         note                conf3: "Do recycled hybrid seeds have low
+> er / the same / higher yields than purchased hybrid seeds?"
+
+.         label               define conf3 0 "Lower" 1 "The same" 2 "Hi
+> gher"
+
+.         label               values conf3 conf3
+
+. 
+.         label               variable conf4 ///
+>                         "Maize grows best in what kind of soil?"
+
+.         note                conf4: "Maize grows best in (extremely ac
+> idic, slightly acidic, not acidic) soil."
+
+.         label               define conf4 1 "Extremely acidic" 2 "Some
+> what acidic" 3 "Not-acidic" 31 "Don't know"
+
+.         label               values conf4 conf4
+
+. 
+.         label               variable conf5 ///
+>                         "How much DAP does gvt recomment for 1 acre m
+> aize plot?"
+
+.         note                conf5: "How many kg of DAP does the Kenya
+> n government recommend using on 1 acre maize plot?"
+
+. 
+.         label               variable conf6 ///
+>                         "How much CAN does gvt recomment for 1 acre m
+> aize plot?"
+
+.         note                conf6: "How many kg of CAN does the Kenya
+> n government recommend using on 1 acre maize plot?"
+
+. 
+.         label               variable conf7 ///
+>                         "When should CAN be applied on maize as top d
+> ressing?"
+
+.         note                conf7: "Assuming only one fertilizer appl
+> ication, when should CAN be applied on maize as top dressing?"
+
+.         label               define conf7 1 "1-2 months before plantin
+> g" 2 "At planting" 3 "At emergence" 4 "When plant is knee high" 5 "Wh
+> en plant is shoulder high" 31 "Don't know"
+
+.         label               values conf7 conf7
+
+. 
+.         label               variable conf8 ///
+>                          "When should lime be applied to your maize f
+> ield?"
+
+.         note                conf8: "When should lime be applied to yo
+> ur maize field?"
+
+.         label               define conf8 1 "1-2 months before plantin
+> g" 2 "At planting" 3 "At emergence" 4 "When plant is knee high" 5 "Wh
+> en plant is shoulder high" 31 "Don't know"
+
+.         label               values conf8 conf8
+
+. 
+.         label               variable conf9 "What benefit does lime pr
+> ovide?"
+
+.         note                conf9: "What benefit does lime provide?"
+
+.         label               define conf9 1 "Changes the soil texture"
+>  2 "Makes soil drain better" 3 "Reduces acidity of soil" 4 "Kills pes
+> ts" 31 "Don't know"
+
+.         label               values conf9 conf9
+
+. 
+.         label               variable conf10 ///
+>                          "What can be done to control Striga weed?"
+
+.         note                conf10: "What can be done to control Stri
+> ga weed?"
+
+. 
+.         label               variable conf11 ///
+>                          "What are the symptoms of Maize Lethal Necro
+> sis?"
+
+.         note                conf11: "What are the symptoms of Maize L
+> ethal Necrosis?"
+
+. 
+.         label               variable placement1  ///
+>                         "How many questions do you think you got righ
+> t?"
+
+.         note                placement1: "Now that you know the questi
+> ons, how many questions do you believe that you answered correctly?"
+
+. 
+.         label               variable placement2  ///
+>                         "How many correct answers would average farme
+> r in village get?"
+
+.         note                placement2: "How many questions do you th
+> ink that the average farmer in this village would answer correctly?"
+
+. 
+.         label               variable placement3  ///
+>                         "Maize yields since 2013 compared to others i
+> n village"
+
+.         note                placement3: "Since 2013, compared to othe
+> r farmers in the village, were your maize yields..."
+
+.         label               define placement3 1 "Much higher than oth
+> ers" 2 "A little higher than others" 3 "About same as others" 4 "A li
+> ttle less than others" 5 "A lot less than others"
+
+.         label               values placement3 placement3
+
+. 
+.         label               variable placement4  ///
+>                         "Frequency of doubts about farming decisions?
+> "
+
+.         note                placement4: "How often do you have doubts
+>  about the farming decisions that you make?"
+
+.         label               define placement4 1 "Almost all the time"
+>  2 "Very often" 3 "Sometimes" 4 "Rarely" 5 "Never"
+
+.         label               values placement4 placement4
+
+. 
+.         label               variable placement5  ///
+>                         "Doubts about farming decisions, compared to 
+> others?"
+
+.         note                placement5: "Compared to others, how ofte
+> n do you have doubts about the farming decisions that you make?"
+
+.         label               define placement5 1 "A lot more than othe
+> rs" 2 "A little more than others" 3 "The same as others" 4 "A little 
+> less than others" 5 "A lot less than others"
+
+.         label               values placement5 placement5
+
+. 
+.         label               variable purchase_nr   ///
+>                         "Hybrid purchases from how many stores?"
+
+.         label               variable purchase_nr2   ///
+>                         "Fertilizer purchases from how many stores?" 
+>  
+
+.     forval i = 1/3 {
+  2.         label               variable purchase`i'_name "Name of  Ag
+> roVet # (`i')"
+  3.         label               variable purchase`i'_location "Locatio
+> n of AgroVet # (`i')"
+  4.         label               variable purchase`i'_landmark "Landmar
+> ks near AgroVet # (`i')"
+  5.         label               variable purchase`i'_distance "Distanc
+> e to AgroVet # (`i')"
+  6.         label               variable purchase`i'_other "Other dire
+> ction to AgroVet # (`i')"
+  7.         
+.         local j = `i'+3
+  8.         label               variable purchase`j'_name "Name of  Ag
+> roVet # (`j')"
+  9.         label               variable purchase`j'_location "Locatio
+> n of AgroVet # (`j')"
+ 10.         label               variable purchase`j'_landmark "Landmar
+> ks near AgroVet # (`j')"
+ 11.         label               variable purchase`j'_distance "Distanc
+> e to AgroVet # (`j')"
+ 12.         label               variable purchase`j'_other "Other dire
+> ction to AgroVet # (`j')"        
+ 13.         
+.     }
+
+. 
+.     label               variable trust1 "Has AgroVet #1 sold you poor
+>  quality hybrids?"
+
+.     note                trust1: "For this seller, have you ever purch
+> ased hybrids from this seller that were of poor quality?  * seeds wer
+> e not viable / did not germinate?"
+
+.     label               define trust1 1 "Yes" 0 "No"
+
+.     label               values trust1 trust1    
+
+.         label               variable trust2 "Overall, do you trust hy
+> brid quality from Agrovet #1?"
+
+.         note                trust2: "Overall, how much do you trust t
+> he quality of the hybrids you can purchase from this seller?"
+
+.         label               define trust2 1 "Completely trust their p
+> roduct" 2 "Trust the product a lot" 3 "Trust somewhat" 4 "Have some d
+> oubts about product" 5 "Do not trust product at all"
+
+.         label               values trust2 trust2
+
+. 
+.     label               variable trust3 "Has AgroVet #3 sold you poor
+>  quality hybrids?"
+
+.         note                trust3: "For this seller, have you ever p
+> urchased hybrids from this seller that were of poor quality?  * seeds
+>  were not viable / did not germinate?"
+
+.         label               define trust3 1 "Yes" 0 "No"
+
+.         label               values trust3 trust3
+
+.         label               variable trust4 "Overall, do you trust hy
+> brid quality from Agrovet #2?"
+
+.         note                trust4: "Overall, how much do you trust t
+> he quality of the hybrids you can purchase from this seller?"
+
+.         label               define trust4 1 "Completely trust their p
+> roduct" 2 "Trust the product a lot" 3 "Trust somewhat" 4 "Have some d
+> oubts about product" 5 "Do not trust product at all"
+
+.         label               values trust4 trust4
+
+. 
+.     label               variable trust5 "Has AgroVet #3 sold you poor
+>  quality hybrids?"
+
+.         note                trust3: "For this seller, have you ever p
+> urchased hybrids from this seller that were of poor quality?  * seeds
+>  were not viable / did not germinate?"
+
+.         label               define trust5 1 "Yes" 0 "No"
+
+.         label               values trust5 trust5
+
+.         label               variable trust6 "Overall, do you trust hy
+> brid quality from Agrovet #3?"
+
+.         note                trust4: "Overall, how much do you trust t
+> he quality of the hybrids you can purchase from this seller?"
+
+.         label               define trust6 1 "Completely trust their p
+> roduct" 2 "Trust the product a lot" 3 "Trust somewhat" 4 "Have some d
+> oubts about product" 5 "Do not trust product at all"
+
+.         label               values trust6 trust6
+
+. 
+.     label               variable trust7 "Has AgroVet #4 sold you poor
+>  quality fertilizer?"
+
+.         note                trust7: "For this seller, have you ever p
+> urchased fertilizer from this seller that was of poor quality?  * low
+> -quality, for example"
+
+.     label               define trust7 1 "Yes" 0 "No"
+
+.     label               values trust7 trust7    
+
+.         label               variable trust8 "Overall, do you trust hy
+> brid quality from Agrovet #4?"
+
+.         note                trust8: "Overall, how much do you trust t
+> he quality of the fertilizer you can purchase from this seller?"
+
+.         label               define trust8 1 "Completely trust their p
+> roduct" 2 "Trust the product a lot" 3 "Trust somewhat" 4 "Have some d
+> oubts about product" 5 "Do not trust product at all"
+
+.         label               values trust8 trust8
+
+. 
+.     label               variable trust9 "Has AgroVet #5 sold you poor
+>  quality fertilizer?"
+
+.         note                trust9: "For this seller, have you ever p
+> urchased fertilizer from this seller that was of poor quality?  * low
+> -quality, for example"
+
+.     label               define trust9 1 "Yes" 0 "No"
+
+.     label               values trust9 trust9    
+
+.         label               variable trust10 "Overall, do you trust h
+> ybrid quality from Agrovet #5?"
+
+.         note                trust10: "Overall, how much do you trust 
+> the quality of the fertilizer you can purchase from this seller?"
+
+.         label               define trust10 1 "Completely trust their 
+> product" 2 "Trust the product a lot" 3 "Trust somewhat" 4 "Have some 
+> doubts about product" 5 "Do not trust product at all"
+
+.         label               values trust10 trust10
+
+.     
+.     label               variable trust11 "Has AgroVet #6 sold you poo
+> r quality fertilizer?"
+
+.         note                trust11: "For this seller, have you ever 
+> purchased fertilizer from this seller that was of poor quality?  * lo
+> w-quality, for example"
+
+.     label               define trust11 1 "Yes" 0 "No"
+
+.     label               values trust11 trust11    
+
+.         label               variable trust12 "Overall, do you trust h
+> ybrid quality from Agrovet #6?"
+
+.         note                trust12: "Overall, how much do you trust 
+> the quality of the fertilizer you can purchase from this seller?"
+
+.         label               define trust12 1 "Completely trust their 
+> product" 2 "Trust the product a lot" 3 "Trust somewhat" 4 "Have some 
+> doubts about product" 5 "Do not trust product at all"
+
+.         label               values trust12 trust12
+
+.  
+. 
+.         label               variable aspirations1 "Accept reality of 
+> things > dream of better future"
+
+.         note                aspirations1: "It is better learn to acce
+> pt the reality of things than to dream of a better future."
+
+.         label               define aspirations1 0 "Completely disagre
+> e" 1 "Disagree strongly" 2 "Disagree somewhat strongly" 3 "Disagree s
+> omewhat" 4 "Disagree a little" 5 "Neither agree nor disagree" 6 "Agre
+> e a little" 7 "Agree somewhat" 8 "Agree somewhat strongly" 9 "Agree s
+> trongly" 10 "Completely agree"
+
+.         label               values aspirations1 aspirations1
+
+. 
+.         label               variable aspirations2 "Have aspirations f
+> or family > accept each day as it comes"
+
+.         note                aspirations2: "It is better to have aspir
+> ations for your family than to accept each day as it comes."
+
+.         label               define aspirations2 0 "Completely disagre
+> e" 1 "Disagree strongly" 2 "Disagree somewhat strongly" 3 "Disagree s
+> omewhat" 4 "Disagree a little" 5 "Neither agree nor disagree" 6 "Agre
+> e a little" 7 "Agree somewhat" 8 "Agree somewhat strongly" 9 "Agree s
+> trongly" 10 "Completely agree"
+
+.         label               values aspirations2 aspirations2
+
+. 
+.         label               variable aspirations3 "Satisfied with cur
+> rent farm production?"
+
+.         note                aspirations3: "I am satisfied with the cu
+> rrent levels of production from my farm."
+
+.         label               define aspirations3 0 "Completely disagre
+> e" 1 "Disagree strongly" 2 "Disagree somewhat strongly" 3 "Disagree s
+> omewhat" 4 "Disagree a little" 5 "Neither agree nor disagree" 6 "Agre
+> e a little" 7 "Agree somewhat" 8 "Agree somewhat strongly" 9 "Agree s
+> trongly" 10 "Completely agree"
+
+.         label               values aspirations3 aspirations3
+
+. 
+.         label               variable aspirations4 "It is best to esta
+> blish clear production goals ahead of time"
+
+.         note                aspirations4: "It is wiser to establish c
+> lear production goals for my farm than to address situations as they 
+> arrive."
+
+.         label               define aspirations4 0 "Completely disagre
+> e" 1 "Disagree strongly" 2 "Disagree somewhat strongly" 3 "Disagree s
+> omewhat" 4 "Disagree a little" 5 "Neither agree nor disagree" 6 "Agre
+> e a little" 7 "Agree somewhat" 8 "Agree somewhat strongly" 9 "Agree s
+> trongly" 10 "Completely agree"
+
+.         label               values aspirations4 aspirations4
+
+. 
+.         label               variable aspirations5 "Existing goals & p
+> lans for increasing yields & profits"
+
+.         note                aspirations5: "I have specific goals and 
+> plans for increasing my yields and my farm profits in the future."
+
+.         label               define aspirations5 0 "Completely disagre
+> e" 1 "Disagree strongly" 2 "Disagree somewhat strongly" 3 "Disagree s
+> omewhat" 4 "Disagree a little" 5 "Neither agree nor disagree" 6 "Agre
+> e a little" 7 "Agree somewhat" 8 "Agree somewhat strongly" 9 "Agree s
+> trongly" 10 "Completely agree"
+
+.         label               values aspirations5 aspirations5
+
+. 
+.         label               variable aspirations6 "Future shaped by o
+> wn actions > actions of others"
+
+.         note                aspirations6: "My future is shaped mainly
+>  by my own actions rather by than the actions of others."
+
+.         label               define aspirations6 0 "Completely disagre
+> e" 1 "Disagree strongly" 2 "Disagree somewhat strongly" 3 "Disagree s
+> omewhat" 4 "Disagree a little" 5 "Neither agree nor disagree" 6 "Agre
+> e a little" 7 "Agree somewhat" 8 "Agree somewhat strongly" 9 "Agree s
+> trongly" 10 "Completely agree"
+
+.         label               values aspirations6 aspirations6
+
+. 
+.         label               variable aspirations7 "Hard work matters 
+> less than luck in farming"
+
+.         note                aspirations7: "To really prosper, a farme
+> r must be lucky because hard work doesn’t really matter."
+
+.         label               define aspirations7 0 "Completely disagre
+> e" 1 "Disagree strongly" 2 "Disagree somewhat strongly" 3 "Disagree s
+> omewhat" 4 "Disagree a little" 5 "Neither agree nor disagree" 6 "Agre
+> e a little" 7 "Agree somewhat" 8 "Agree somewhat strongly" 9 "Agree s
+> trongly" 10 "Completely agree"
+
+.         label               values aspirations7 aspirations7
+
+. 
+.         label               variable aspirations8 "I can find a way t
+> o solve most problems."
+
+.         note                aspirations8: "I can find a way to solve 
+> most problems."
+
+.         label               define aspirations8 0 "Completely disagre
+> e" 1 "Disagree strongly" 2 "Disagree somewhat strongly" 3 "Disagree s
+> omewhat" 4 "Disagree a little" 5 "Neither agree nor disagree" 6 "Agre
+> e a little" 7 "Agree somewhat" 8 "Agree somewhat strongly" 9 "Agree s
+> trongly" 10 "Completely agree"
+
+.         label               values aspirations8 aspirations8
+
+. 
+.         label               variable aspirations9 "I know what to do 
+> when rainfall will be low"
+
+.         note                aspirations9: "If I believe rainfall is g
+> oing to be low during the growing season, I know how to modify my pro
+> duction practices to adapt."
+
+.         label               define aspirations9 0 "Completely disagre
+> e" 1 "Disagree strongly" 2 "Disagree somewhat strongly" 3 "Disagree s
+> omewhat" 4 "Disagree a little" 5 "Neither agree nor disagree" 6 "Agre
+> e a little" 7 "Agree somewhat" 8 "Agree somewhat strongly" 9 "Agree s
+> trongly" 10 "Completely agree"
+
+.         label               values aspirations9 aspirations9
+
+. 
+.         label               variable aspirations10 "I regularly check
+>  crops to maximize yields"
+
+.         note                aspirations10: "I regularly check my crop
+> s during the growing season so I know what I need to do to get the be
+> st yield possible."
+
+.         label               define aspirations10 0 "Completely disagr
+> ee" 1 "Disagree strongly" 2 "Disagree somewhat strongly" 3 "Disagree 
+> somewhat" 4 "Disagree a little" 5 "Neither agree nor disagree" 6 "Agr
+> ee a little" 7 "Agree somewhat" 8 "Agree somewhat strongly" 9 "Agree 
+> strongly" 10 "Completely agree"
+
+.         label               values aspirations10 aspirations10
+
+. 
+.         label               variable aspirations11 "Discouraged when 
+> maize < others in village"
+
+.         note                aspirations11: "I become discouraged easi
+> ly when my maize is not growing as well as others in my village."
+
+.         label               define aspirations11 0 "Completely disagr
+> ee" 1 "Disagree strongly" 2 "Disagree somewhat strongly" 3 "Disagree 
+> somewhat" 4 "Disagree a little" 5 "Neither agree nor disagree" 6 "Agr
+> ee a little" 7 "Agree somewhat" 8 "Agree somewhat strongly" 9 "Agree 
+> strongly" 10 "Completely agree"
+
+.         label               values aspirations11 aspirations11
+
+. 
+.         label               variable aspirations12 "I could switch cr
+> ops if maize prices fall"
+
+.         note                aspirations12: "If maize prices fall, I c
+> ould easily learn how to grow other crops instead."
+
+.         label               define aspirations12 0 "Completely disagr
+> ee" 1 "Disagree strongly" 2 "Disagree somewhat strongly" 3 "Disagree 
+> somewhat" 4 "Disagree a little" 5 "Neither agree nor disagree" 6 "Agr
+> ee a little" 7 "Agree somewhat" 8 "Agree somewhat strongly" 9 "Agree 
+> strongly" 10 "Completely agree"
+
+.         label               values aspirations12 aspirations12
+
+. 
+.         label               variable aspirations13 "Fate (mine & fami
+> ly's) determined by powerful others"
+
+.         note                aspirations13: "What happens to me and my
+>  family depends on powerful people rather than ourselves."
+
+.         label               define aspirations13 0 "Completely disagr
+> ee" 1 "Disagree strongly" 2 "Disagree somewhat strongly" 3 "Disagree 
+> somewhat" 4 "Disagree a little" 5 "Neither agree nor disagree" 6 "Agr
+> ee a little" 7 "Agree somewhat" 8 "Agree somewhat strongly" 9 "Agree 
+> strongly" 10 "Completely agree"
+
+.         label               values aspirations13 aspirations13
+
+. 
+.         label               variable dap_price "Current price, DAP (k
+> g)"
+
+.         note                dap_price: "Enumerator: what is the cost/
+> kg of DAP"
+
+. 
+.         label               variable can_price "Current price, CAN (k
+> g)"
+
+.         note                can_price: "Enumerator: what is the cost/
+> kg of CAN"
+
+. 
+.         label               variable lime_price "Current price, lime 
+> (kg)"
+
+.         note                lime_price: "Enumerator: what is the cost
+> /kg of lime"
+
+. 
+.         label               variable order1 "DAP allocation"
+
+.         note                order1: "How much of your 5000 Ksh would 
+> allocate to DAP?"
+
+. 
+.         label               variable order2 "CAN allocation"
+
+.         note                order2: "How much of your 5000 Ksh would 
+> allocate to CAN?"
+
+. 
+.         label               variable order3 "Lime allocation"
+
+.         note                order3: "How much of your 5000 Ksh would 
+> allocate to Lime?"
+
+. 
+.     label               variable duration "Interview duration"       
+>    
+
+. 
+.     label               variable comments "Comments"          
+
+. 
+.     order               key hhid village county consent enum, first
+
+. 
+.     
+. * Save data set
+.     customsave,         idvar(key) filename(mm_gamePre)  ///
+>                         path($gamePre/dataSets/intermediate)       //
+> /
+>                         dofile(mm_gamePre.do)                  ///
+>                         description("Pre-game data, de-identified")  
+> ///
+>                         user(Emilia Tjernström)
+
+Observations in this data set are identified by key.  This data set was
+>  created with .do file mm_gamePre.do  by user Emilia Tjernström using
+>  computer WFTB9Q03  | Last modified on 25 May 2020
+
+. 
+. * Generate a .csv file as well
+.     export delimited    "$gamePre/dataSets/intermediate/mm_gamePre.cs
+> v", replace
+(note: file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePr
+> e/dataSets/intermediate/mm_gamePre.csv not found)
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePre/dataS
+> ets/intermediate/mm_gamePre.csv saved
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gameP
+> re/code/logs/mm_gamePre.log
+  log type:  text
+ closed on:  25 May 2020, 16:04:02
+-----------------------------------------------------------------------

@@ -1,0 +1,947 @@
+-----------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gameP
+> lay/code/logs/mm_gamePlay.log
+  log type:  text
+ opened on:  25 May 2020, 16:04:03
+
+. 
+. * Project:                      MahindiMaster
+. * Created:                      2017/05/09 - RF
+. * Last modified:        2020/05/07 - ET
+. * Stata                         v.16.1
+. 
+. * *******************************************************************
+> ***
+. * 1 (a) - Import all data files (each player is a separate .csv file)
+. * *******************************************************************
+> ***
+.         local                           i = 1
+
+. 
+.     * Get a list of all .csv files with game play data
+.         foreach                         dirname in files files2 files
+> 3 files4 {
+  2.                 local                           csvlist: dir  ///
+>                             "$gamePlay/dataSets/raw/`dirname'" files 
+> "*.csv"
+  3.                 foreach csvfile of local csvlist {
+  4.                         * Import the files one by one
+.                         import          delimited ///
+>                         "$gamePlay/dataSets/raw/`dirname'/`csvfile'",
+>  clear
+  5. 
+.                         * Declare temporary file for each new data fi
+> le
+.                         tempfile        csvfile
+  6. 
+.             * Save the first data file:
+.                         if `i' == 1     {
+  7.                                 save    "$gamePlay/dataSets/raw/ga
+> mePlay.dta", replace
+  8.                         }
+  9.             * Save each data set as tempfile, open data set and ap
+> pend
+.                         if `i' > 1 {
+ 10.                 save            `csvfile'
+ 11.                                 use         "$gamePlay/dataSets/ra
+> w/gamePlay.dta", clear
+ 12.                                 append      using `csvfile'
+ 13.                                 save    "$gamePlay/dataSets/raw/ga
+> mePlay.dta", replace
+ 14.                         }
+ 15.                         local           ++i
+ 16.                 }
+ 17.         }
+(14 vars, 10 obs)
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000002.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000003.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000004.tmp saved
+(note: variable v2 was byte, now int to accommodate using data's
+       values)
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000005.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000006.tmp saved
+(note: variable v1 was str15, now str23 to accommodate using data's
+       values)
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000007.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000008.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000009.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 16 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000a.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000b.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000c.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000d.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000e.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000f.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000g.tmp saved
+(note: variable v7 was byte, now int to accommodate using data's
+       values)
+(note: variable v8 was byte, now int to accommodate using data's
+       values)
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000h.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000i.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000j.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000k.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000l.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000m.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000n.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000o.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000p.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000q.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 13 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000r.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000s.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 13 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000t.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000u.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000v.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000w.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00000x.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000010.tmp saved
+(note: variable v1 was str23, now str24 to accommodate using data's
+       values)
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000011.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000012.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000013.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000014.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000015.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000016.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000017.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000018.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000019.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001a.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001b.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001c.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001d.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001e.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001f.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 3 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001g.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001h.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 13 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001i.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 8 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001j.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001k.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 2 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001l.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 16 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001m.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 15 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001n.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001o.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 13 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001p.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 5 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001q.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001r.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001s.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001t.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 7 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001u.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001v.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001w.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00001x.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000020.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 16 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000021.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 16 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000022.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 16 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000023.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000024.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000025.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000026.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 13 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000027.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 3 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000028.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 13 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000029.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 15 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002a.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 2 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002b.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002c.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 17 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002d.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002e.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 16 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002f.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002g.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002h.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002i.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002j.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002k.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 17 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002l.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002m.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 15 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002n.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002o.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002p.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002q.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 13 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002r.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002s.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002t.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002u.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002v.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 16 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002w.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00002x.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000030.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000031.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 13 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000032.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000033.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000034.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000035.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000036.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000037.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000038.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 4 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000039.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003a.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003b.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 17 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003c.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 15 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003d.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003e.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003f.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003g.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003h.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003i.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 15 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003j.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 13 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003k.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003l.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003m.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003n.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 13 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003o.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003p.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 15 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003q.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 20 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003r.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 15 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003s.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003t.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003u.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 15 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003v.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 16 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003w.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 16 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00003x.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000040.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000041.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000042.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 13 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000043.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000044.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000045.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 17 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000046.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(13 vars, 16 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000047.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 6 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000048.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000049.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 7 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004a.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004b.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004c.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004d.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 15 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004e.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004f.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004g.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004h.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 13 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004i.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 8 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004j.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004k.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 15 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004l.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 8 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004m.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004n.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 17 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004o.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 13 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004p.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004q.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 18 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004r.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 8 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004s.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 19 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004t.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004u.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004v.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 8 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004w.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00004x.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 7 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000050.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000051.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000052.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 8 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000053.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000054.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000055.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 8 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000056.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000057.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000058.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 16 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_000059.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00005a.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 9 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00005b.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 17 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00005c.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 14 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00005d.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 7 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00005e.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00005f.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00005g.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 8 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00005h.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 11 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00005i.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 10 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00005j.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 12 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00005k.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+(14 vars, 16 obs)
+file C:\Users\btje4229\AppData\Local\Temp\ST_3330_00005l.tmp saved
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/raw/gamePlay.dta saved
+
+. 
+. * *******************************************************************
+> ***
+. * 2 - Name variables
+. * *******************************************************************
+> ***
+. 
+.         rename                          v1 name
+
+.         rename                          v2 villageid
+
+.         rename                          v3 hhid
+
+.         rename                          v4 level_game
+
+.         rename                          v5 starttime_game
+
+.         rename                          v6 finishtime_game
+
+.         rename                          v7 dap_game
+
+.         rename                          v8 can_game
+
+.         rename                          v9 lime_game
+
+.         rename                          v10 rain_game
+
+.         rename                          v11 yield_game
+
+.         rename                          v12 acreage_game
+
+.         rename                          v13 scaled_game
+
+.         rename                          v14 finallevel_game
+
+. 
+. * *******************************************************************
+> ***
+. * 3 - Remove PID
+. * *******************************************************************
+> ***
+. * Drop PID -- in this case, just the name which is the name of the hh
+>  head
+.     drop                                name
+
+. 
+. * *******************************************************************
+> ***
+. * 4 - Add variable labels
+. * *******************************************************************
+> ***
+. 
+.         label var                       dap_game "DAP (kg)"
+
+.         label var                       can_game "CAN (kg)"
+
+.         label var                       lime_game "Lime (kg)"
+
+.         label var                       yield_game "Yield (kg)"
+
+.         label var                       rain_game "Rainfall Scenario:
+>  1=poor, 2=ok, 3=good"
+
+.         label var                       finallevel_game "Final Select
+> ion Round"
+
+. 
+.     label               variable hhid "Household ID"
+
+.     label               variable villageid "Village ID"
+
+.     label               variable level_game "Game round"
+
+.     label               variable hhid ""
+
+.     label               variable hhid "Household ID"
+
+.     
+.     
+. * *******************************************************************
+> ***
+. * 5 - Add meta data and save
+. * *******************************************************************
+> ***
+. 
+. * Save data set
+.     customsave,         idvar(hhid) filename(mm_gamePlay)            
+>            ///
+>                         path($gamePlay/dataSets/intermediate)       /
+> //
+>                         dofile(mm_gamePlay.do)                       
+>    ///
+>                         description("Game play data, de-identified") 
+>  ///
+>                         user(Emilia Tjernström)
+
+Observations in this data set are identified by hhid.  This data set wa
+> s created with .do file mm_gamePlay.do  by user Emilia Tjernström usi
+> ng computer WFTB9Q03  | Last modified on 25 May 2020
+
+. 
+. * Generate a .csv file as well
+.     export delimited    "$gamePlay/dataSets/intermediate/mm_gamePlay.
+> csv" ///
+>                                                 , replace
+(note: file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePl
+> ay/dataSets/intermediate/mm_gamePlay.csv not found)
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gamePlay/data
+> Sets/intermediate/mm_gamePlay.csv saved
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gameP
+> lay/code/logs/mm_gamePlay.log
+  log type:  text
+ closed on:  25 May 2020, 16:04:05
+-----------------------------------------------------------------------

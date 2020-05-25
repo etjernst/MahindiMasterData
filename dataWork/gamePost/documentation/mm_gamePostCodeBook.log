@@ -1,0 +1,1191 @@
+-----------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gameP
+> ost/documentation/mm_gamePostCodeBook.log
+  log type:  text
+ opened on:  25 May 2020, 16:04:06
+
+.                 
+. * Compact codebook
+.     codebook, compact
+
+Variable      Obs Unique      Mean       Min       Max  Label
+-----------------------------------------------------------------------
+duration      196    178         .         .         .  Duration
+comments       41     41         .         .         .  Comments
+enum          196      4  2.510204         1         4  Enumerator
+county        196      2  5.602041         3         9  County
+village       196     19         .         .         .  Village
+hhid          196    186         .         .         .  Household ID
+plant_seq     196      4  3.158163         1         4  Planting in ...
+plant_seq2    170     97         .         .         .  Main differe...
+plant_fun     196      2  .9489796         0         1  Enjoy playin...
+plant_learn   196      2  .9642857         0         1  Learn someth...
+yield_comp~e  196      5   2.27551         1         5  Game yields ...
+yield_comp~2  148     39         .         .         .  Why do you t...
+yield_spec~y   25     24         .         .         .  Other reason...
+risk1         196      5      3.75         1         5  Risk aversio...
+risk2         196      5  3.826531         1         5  Risk aversio...
+risk3         196      2  1.714286         1         2  Certain 3000...
+risk4          56      2     1.125         1         2  Are you sure...
+risk5         140      2  1.664286         1         2  Certain 3000...
+risk6          93      2  1.634409         1         2  Certain 3000...
+risk7          59      2  1.661017         1         2  Certain 3000...
+risk8          39      2  1.897436         1         2  Certain 3000...
+risk9          35      2  1.942857         1         2  Certain 3000...
+p_size_unit   196      1         1         1         1  Area unit fo...
+p_sizea       196     23  1.192704      .125         5  Area of samp...
+p_sizeh         0      0         .         .         .  Area of samp...
+p_sizem         0      0         .         .         .  Area of samp...
+p_sizep1        0      0         .         .         .  How many pac...
+p_sizep2        0      0         .         .         .  How many pac...
+p_size_acres  196     23         .         .         .  Area of samp...
+exp_5         196     26  3.749745         0        50  Expectation:...
+exp_6         196     42  12.46939         1        80  Expectation:...
+exp_c1        196      7  2.510204         0         6  Number of be...
+exp_c2        196      9  2.928571         0        15  Number of be...
+exp_c3        196     13  3.892857         0        13  Number of be...
+exp_c4        196     14  4.959184         0        15  Number of be...
+exp_c5        196     17  5.709184         0        20  Number of be...
+exp_7          66     17  4.956061         0        50  Expectation:...
+exp_8          66     25  15.56061       2.5       100  Expectation:...
+exp_d1         66      7  2.530303         0         6  Number of be...
+exp_d2         66      9  3.015152         0         8  Number of be...
+exp_d3         66     10  3.590909         0        10  Number of be...
+exp_d4         66     13  4.606061         0        14  Number of be...
+exp_d5         66     15  6.257576         0        20  Number of be...
+aspirations1  196     11  6.183673         0        10  Accept reali...
+aspirations2  196     11  7.454082         0        10  Have aspirat...
+aspirations3  196     11  3.903061         0        10  Satisfied wi...
+aspirations4  196     11  8.545918         0        10  It is best t...
+aspirations5  196     11  7.693878         0        10  Existing goa...
+aspirations6  196     11  8.066327         0        10  Future shape...
+aspirations7  196     11  2.290816         0        10  Hard work ma...
+aspirations8  196     11  7.836735         0        10  I can find a...
+aspirations9  196     11  5.653061         0        10  I know what ...
+aspiratio~10  196     10  8.969388         1        10  I regularly ...
+aspiratio~11  196     11  6.234694         0        10  Discouraged ...
+aspiratio~12  196     11  5.265306         0        10  I could swit...
+aspiratio~13  196     11  2.622449         0        10  Fate (mine &...
+formdef_ve~n  196      3  1.70e+09  1.70e+09  1.70e+09  Form version...
+key           196    196         .         .         .  Unique submi...
+submission~e  196    195  1.81e+12  1.80e+12  1.81e+12  Date/time su...
+starttime     196    196  1.81e+12  1.80e+12  1.81e+12  Start Time
+endtime       196    196  1.81e+12  1.80e+12  1.81e+12  End Time
+-----------------------------------------------------------------------
+
+. 
+. * More details
+.     codebook,       mv
+
+-----------------------------------------------------------------------
+duration                                                       Duration
+-----------------------------------------------------------------------
+
+                  type:  string (str4)
+
+         unique values:  178                      missing "":  0/196
+
+              examples:  "2248"
+                         "408"
+                         "575"
+                         "720"
+
+-----------------------------------------------------------------------
+comments                                                       Comments
+-----------------------------------------------------------------------
+
+                  type:  string (str55)
+
+         unique values:  41                       missing "":  155/196
+
+              examples:  ""
+                         ""
+                         ""
+                         "media\Comments-02fde548-1440-4ec8-a149-526df4
+> 4e8ba7.
+                         csv"
+
+-----------------------------------------------------------------------
+enum                                                         Enumerator
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [1,4]                        units:  1
+         unique values:  4                        missing .:  0/196
+
+            tabulation:  Freq.  Value
+                            50  1
+                            48  2
+                            46  3
+                            52  4
+
+-----------------------------------------------------------------------
+county                                                           County
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  county
+
+                 range:  [3,9]                        units:  1
+         unique values:  2                        missing .:  0/196
+
+            tabulation:  Freq.   Numeric  Label
+                           111         3  Homabay
+                            85         9  Migori
+
+-----------------------------------------------------------------------
+village                                                         Village
+-----------------------------------------------------------------------
+
+                  type:  string (str3)
+
+         unique values:  19                       missing "":  0/196
+
+              examples:  "25"
+                         "50"
+                         "73"
+                         "82"
+
+-----------------------------------------------------------------------
+hhid                                                       Household ID
+-----------------------------------------------------------------------
+
+                  type:  string (str4)
+
+         unique values:  186                      missing "":  0/196
+
+              examples:  "1390"
+                         "1629"
+                         "2311"
+                         "562"
+
+-----------------------------------------------------------------------
+plant_seq                   Planting in game vs normal planting process
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  plant_seq
+
+                 range:  [1,4]                        units:  1
+         unique values:  4                        missing .:  0/196
+
+            tabulation:  Freq.   Numeric  Label
+                             3         1  The game planting sequence is
+                                          similar to how I plant
+                            23         2  The game planting sequence is
+                                          somewhat similar to how I pla
+> nt
+                           110         3  The game planting sequence is
+                                          slightly different from how I
+                                          plant
+                            60         4  The game planting sequence is
+                                          very different from how I pla
+> nt
+
+-----------------------------------------------------------------------
+plant_seq2                                            Main differences?
+-----------------------------------------------------------------------
+
+                  type:  string (str16)
+
+         unique values:  97                       missing "":  26/196
+
+              examples:  "1 2 3 13"
+                         "2 3 11"
+                         "3 4 5 11"
+                         "4 6 11"
+
+               warning:  variable has embedded blanks
+
+-----------------------------------------------------------------------
+plant_fun                                        Enjoy playing the game
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  plant_fun
+
+                 range:  [0,1]                        units:  1
+         unique values:  2                        missing .:  0/196
+
+            tabulation:  Freq.   Numeric  Label
+                            10         0  No
+                           186         1  Yes
+
+-----------------------------------------------------------------------
+plant_learn                          Learn something new from the game?
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  plant_learn
+
+                 range:  [0,1]                        units:  1
+         unique values:  2                        missing .:  0/196
+
+            tabulation:  Freq.   Numeric  Label
+                             7         0  No
+                           189         1  Yes
+
+-----------------------------------------------------------------------
+yield_compare                     Game yields vs potential on own field
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  yield_compare
+
+                 range:  [1,5]                        units:  1
+         unique values:  5                        missing .:  0/196
+
+            tabulation:  Freq.   Numeric  Label
+                            63         1  Much higher
+                            54         2  Higher
+                            48         3  The same
+                            24         4  Lower
+                             7         5  Much lower
+
+-----------------------------------------------------------------------
+yield_compare2                     Why do you think they are different?
+-----------------------------------------------------------------------
+
+                  type:  string (str7)
+
+         unique values:  39                       missing "":  48/196
+
+              examples:  ""
+                         "1 4"
+                         "2 4 5"
+                         "4"
+
+               warning:  variable has embedded blanks
+
+-----------------------------------------------------------------------
+yield_specify   Other reasons for differences between game & real life?
+-----------------------------------------------------------------------
+
+                  type:  string (strL)
+
+         unique values:  24                       missing "":  171/196
+
+              examples:  ""
+                         ""
+                         ""
+                         ""
+
+        missing values:  yield_comp~2=="" --> yield_spec~y==""
+
+               warning:  variable has embedded and trailing blanks
+
+-----------------------------------------------------------------------
+risk1                                            Risk aversion: general
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  risk1
+
+                 range:  [1,5]                        units:  1
+         unique values:  5                        missing .:  0/196
+
+            tabulation:  Freq.   Numeric  Label
+                             6         1  Not at all willing to take ri
+> sks
+                            15         2  Somewhat UNwilling to take ri
+> sks
+                            45         3  Neither willing not unwilling
+                            86         4  Somewhat willing to take risk
+> s
+                            44         5  Very willing to take risks
+
+-----------------------------------------------------------------------
+risk2                                            Risk aversion: on farm
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  risk2
+
+                 range:  [1,5]                        units:  1
+         unique values:  5                        missing .:  0/196
+
+            tabulation:  Freq.   Numeric  Label
+                             7         1  Not at all willing to take ri
+> sks
+                            14         2  Somewhat UNwilling to take ri
+> sks
+                            34         3  Neither willing not unwilling
+                            92         4  Somewhat willing to take risk
+> s
+                            49         5  Very willing to take risks
+
+-----------------------------------------------------------------------
+risk3                         Certain 3000 Ksh. vs. (3000,5000) lottery
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  risk
+
+                 range:  [1,2]                        units:  1
+         unique values:  2                        missing .:  0/196
+
+            tabulation:  Freq.   Numeric  Label
+                            56         1  Certainty
+                           140         2  Lottery
+
+-----------------------------------------------------------------------
+risk4                                      Are you sure of your choice?
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  risk
+
+                 range:  [1,2]                        units:  1
+         unique values:  2                        missing .:  140/196
+
+            tabulation:  Freq.   Numeric  Label
+                            49         1  Certainty
+                             7         2  Lottery
+                           140         .  
+
+-----------------------------------------------------------------------
+risk5                         Certain 3000 Ksh. vs. (2500,5000) lottery
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  risk
+
+                 range:  [1,2]                        units:  1
+         unique values:  2                        missing .:  56/196
+
+            tabulation:  Freq.   Numeric  Label
+                            47         1  Certainty
+                            93         2  Lottery
+                            56         .  
+
+-----------------------------------------------------------------------
+risk6                         Certain 3000 Ksh. vs. (2000,5000) lottery
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  risk
+
+                 range:  [1,2]                        units:  1
+         unique values:  2                        missing .:  103/196
+
+            tabulation:  Freq.   Numeric  Label
+                            34         1  Certainty
+                            59         2  Lottery
+                           103         .  
+
+        missing values:         risk5==mv --> risk6==mv
+
+-----------------------------------------------------------------------
+risk7                         Certain 3000 Ksh. vs. (1500,5000) lottery
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  risk
+
+                 range:  [1,2]                        units:  1
+         unique values:  2                        missing .:  137/196
+
+            tabulation:  Freq.   Numeric  Label
+                            20         1  Certainty
+                            39         2  Lottery
+                           137         .  
+
+        missing values:         risk5==mv --> risk7==mv
+                                risk6==mv --> risk7==mv
+
+-----------------------------------------------------------------------
+risk8                         Certain 3000 Ksh. vs. (1000,5000) lottery
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  risk
+
+                 range:  [1,2]                        units:  1
+         unique values:  2                        missing .:  157/196
+
+            tabulation:  Freq.   Numeric  Label
+                             4         1  Certainty
+                            35         2  Lottery
+                           157         .  
+
+        missing values:         risk5==mv --> risk8==mv
+                                risk6==mv --> risk8==mv
+                                risk7==mv --> risk8==mv
+
+-----------------------------------------------------------------------
+risk9                          Certain 3000 Ksh. vs. (500,5000) lottery
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  risk
+
+                 range:  [1,2]                        units:  1
+         unique values:  2                        missing .:  161/196
+
+            tabulation:  Freq.   Numeric  Label
+                             2         1  Certainty
+                            33         2  Lottery
+                           161         .  
+
+        missing values:         risk5==mv --> risk9==mv
+                                risk6==mv --> risk9==mv
+                                risk7==mv --> risk9==mv
+                                risk8==mv --> risk9==mv
+
+-----------------------------------------------------------------------
+p_size_unit                                 Area unit for sampled field
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  p_size_unit
+
+                 range:  [1,1]                        units:  1
+         unique values:  1                        missing .:  0/196
+
+            tabulation:  Freq.   Numeric  Label
+                           196         1  acres
+
+-----------------------------------------------------------------------
+p_sizea                                  Area of sampled field (acres)?
+-----------------------------------------------------------------------
+
+                  type:  numeric (float)
+
+                 range:  [.125,5]                     units:  .001
+         unique values:  23                       missing .:  0/196
+
+                  mean:    1.1927
+              std. dev:   .927827
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                                .3        .5         1       1.5       
+>   3
+
+-----------------------------------------------------------------------
+p_sizeh                               Area of sampled field (hectares)?
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [.,.]                        units:  .
+         unique values:  0                        missing .:  196/196
+
+            tabulation:  Freq.  Value
+                           196  .
+
+        missing values:      comments=="" --> p_sizeh==mv
+                           plant_seq2=="" --> p_sizeh==mv
+                         yield_comp~2=="" --> p_sizeh==mv
+                         yield_spec~y=="" --> p_sizeh==mv
+                                risk4==mv --> p_sizeh==mv
+                                risk5==mv --> p_sizeh==mv
+                                risk6==mv --> p_sizeh==mv
+                                risk7==mv --> p_sizeh==mv
+                                risk8==mv --> p_sizeh==mv
+                                risk9==mv --> p_sizeh==mv
+                              p_sizem==mv <-> p_sizeh==mv
+                             p_sizep1==mv <-> p_sizeh==mv
+                             p_sizep2==mv <-> p_sizeh==mv
+                                exp_7==mv --> p_sizeh==mv
+                                exp_8==mv --> p_sizeh==mv
+                               exp_d1==mv --> p_sizeh==mv
+                               exp_d2==mv --> p_sizeh==mv
+                               exp_d3==mv --> p_sizeh==mv
+                               exp_d4==mv --> p_sizeh==mv
+                               exp_d5==mv --> p_sizeh==mv
+
+-----------------------------------------------------------------------
+p_sizem                                    Area of sampled field (m^2)?
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [.,.]                        units:  .
+         unique values:  0                        missing .:  196/196
+
+            tabulation:  Freq.  Value
+                           196  .
+
+        missing values:      comments=="" --> p_sizem==mv
+                           plant_seq2=="" --> p_sizem==mv
+                         yield_comp~2=="" --> p_sizem==mv
+                         yield_spec~y=="" --> p_sizem==mv
+                                risk4==mv --> p_sizem==mv
+                                risk5==mv --> p_sizem==mv
+                                risk6==mv --> p_sizem==mv
+                                risk7==mv --> p_sizem==mv
+                                risk8==mv --> p_sizem==mv
+                                risk9==mv --> p_sizem==mv
+                              p_sizeh==mv <-> p_sizem==mv
+                             p_sizep1==mv <-> p_sizem==mv
+                             p_sizep2==mv <-> p_sizem==mv
+                                exp_7==mv --> p_sizem==mv
+                                exp_8==mv --> p_sizem==mv
+                               exp_d1==mv --> p_sizem==mv
+                               exp_d2==mv --> p_sizem==mv
+                               exp_d3==mv --> p_sizem==mv
+                               exp_d4==mv --> p_sizem==mv
+                               exp_d5==mv --> p_sizem==mv
+
+-----------------------------------------------------------------------
+p_sizep1             How many paces for the width of the sampled field?
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [.,.]                        units:  .
+         unique values:  0                        missing .:  196/196
+
+            tabulation:  Freq.  Value
+                           196  .
+
+        missing values:      comments=="" --> p_sizep1==mv
+                           plant_seq2=="" --> p_sizep1==mv
+                         yield_comp~2=="" --> p_sizep1==mv
+                         yield_spec~y=="" --> p_sizep1==mv
+                                risk4==mv --> p_sizep1==mv
+                                risk5==mv --> p_sizep1==mv
+                                risk6==mv --> p_sizep1==mv
+                                risk7==mv --> p_sizep1==mv
+                                risk8==mv --> p_sizep1==mv
+                                risk9==mv --> p_sizep1==mv
+                              p_sizeh==mv <-> p_sizep1==mv
+                              p_sizem==mv <-> p_sizep1==mv
+                             p_sizep2==mv <-> p_sizep1==mv
+                                exp_7==mv --> p_sizep1==mv
+                                exp_8==mv --> p_sizep1==mv
+                               exp_d1==mv --> p_sizep1==mv
+                               exp_d2==mv --> p_sizep1==mv
+                               exp_d3==mv --> p_sizep1==mv
+                               exp_d4==mv --> p_sizep1==mv
+                               exp_d5==mv --> p_sizep1==mv
+
+-----------------------------------------------------------------------
+p_sizep2            How many paces for the length of the sampled field?
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [.,.]                        units:  .
+         unique values:  0                        missing .:  196/196
+
+            tabulation:  Freq.  Value
+                           196  .
+
+        missing values:      comments=="" --> p_sizep2==mv
+                           plant_seq2=="" --> p_sizep2==mv
+                         yield_comp~2=="" --> p_sizep2==mv
+                         yield_spec~y=="" --> p_sizep2==mv
+                                risk4==mv --> p_sizep2==mv
+                                risk5==mv --> p_sizep2==mv
+                                risk6==mv --> p_sizep2==mv
+                                risk7==mv --> p_sizep2==mv
+                                risk8==mv --> p_sizep2==mv
+                                risk9==mv --> p_sizep2==mv
+                              p_sizeh==mv <-> p_sizep2==mv
+                              p_sizem==mv <-> p_sizep2==mv
+                             p_sizep1==mv <-> p_sizep2==mv
+                                exp_7==mv --> p_sizep2==mv
+                                exp_8==mv --> p_sizep2==mv
+                               exp_d1==mv --> p_sizep2==mv
+                               exp_d2==mv --> p_sizep2==mv
+                               exp_d3==mv --> p_sizep2==mv
+                               exp_d4==mv --> p_sizep2==mv
+                               exp_d5==mv --> p_sizep2==mv
+
+-----------------------------------------------------------------------
+p_size_acres                            Area of sampled field in acres?
+-----------------------------------------------------------------------
+
+                  type:  string (str20)
+
+         unique values:  23                       missing "":  0/196
+
+              examples:  ".5"
+                         ".75"
+                         "1"
+                         "2"
+
+-----------------------------------------------------------------------
+exp_5               Expectation: Worst possible maize yield, fertilizer
+-----------------------------------------------------------------------
+
+                  type:  numeric (float)
+
+                 range:  [0,50]                       units:  .01
+         unique values:  26                       missing .:  0/196
+
+                  mean:   3.74974
+              std. dev:    5.7997
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                                .5         1         2         4       
+>   8
+
+-----------------------------------------------------------------------
+exp_6                Expectation: Best possible maize yield, fertilizer
+-----------------------------------------------------------------------
+
+                  type:  numeric (float)
+
+                 range:  [1,80]                       units:  .1
+         unique values:  42                       missing .:  0/196
+
+                  mean:   12.4694
+              std. dev:   11.6184
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                                 3         5         9        15       
+>  25
+
+-----------------------------------------------------------------------
+exp_c1                 Number of beans in first interval, no fertilizer
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [0,6]                        units:  1
+         unique values:  7                        missing .:  0/196
+
+            tabulation:  Freq.  Value
+                            10  0
+                            39  1
+                            62  2
+                            33  3
+                            32  4
+                            18  5
+                             2  6
+
+-----------------------------------------------------------------------
+exp_c2                Number of beans in second interval, no fertilizer
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [0,15]                       units:  1
+         unique values:  9                        missing .:  0/196
+
+            tabulation:  Freq.  Value
+                             8  0
+                            28  1
+                            54  2
+                            43  3
+                            31  4
+                            20  5
+                            10  6
+                             1  10
+                             1  15
+
+-----------------------------------------------------------------------
+exp_c3                 Number of beans in third interval, no fertilizer
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [0,13]                       units:  1
+         unique values:  13                       missing .:  0/196
+
+                  mean:   3.89286
+              std. dev:   2.27669
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                                 1         2         4         5       
+>   6
+
+-----------------------------------------------------------------------
+exp_c4                Number of beans in fourth interval, no fertilizer
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [0,15]                       units:  1
+         unique values:  14                       missing .:  0/196
+
+                  mean:   4.95918
+              std. dev:    3.2767
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                                 2         3         4         6       
+>  10
+
+-----------------------------------------------------------------------
+exp_c5                 Number of beans in fifth interval, no fertilizer
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [0,20]                       units:  1
+         unique values:  17                       missing .:  0/196
+
+                  mean:   5.70918
+              std. dev:   3.94866
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                                 2         3         5         7       
+>  11
+
+-----------------------------------------------------------------------
+exp_7          Expectation: Worst possible maize yield, fertilizer+lime
+-----------------------------------------------------------------------
+
+                  type:  numeric (float)
+
+                 range:  [0,50]                       units:  .1
+         unique values:  17                       missing .:  130/196
+
+                  mean:   4.95606
+              std. dev:   7.26785
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                                 1         1         3         5       
+>  10
+
+        missing values:         exp_8==mv <-> exp_7==mv
+                               exp_d1==mv <-> exp_7==mv
+                               exp_d2==mv <-> exp_7==mv
+                               exp_d3==mv <-> exp_7==mv
+                               exp_d4==mv <-> exp_7==mv
+                               exp_d5==mv <-> exp_7==mv
+
+-----------------------------------------------------------------------
+exp_8           Expectation: Best possible maize yield, fertilizer+lime
+-----------------------------------------------------------------------
+
+                  type:  numeric (float)
+
+                 range:  [2.5,100]                    units:  .1
+         unique values:  25                       missing .:  130/196
+
+                  mean:   15.5606
+              std. dev:   14.6076
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                                 4         7        12        18       
+>  30
+
+        missing values:         exp_7==mv <-> exp_8==mv
+                               exp_d1==mv <-> exp_8==mv
+                               exp_d2==mv <-> exp_8==mv
+                               exp_d3==mv <-> exp_8==mv
+                               exp_d4==mv <-> exp_8==mv
+                               exp_d5==mv <-> exp_8==mv
+
+-----------------------------------------------------------------------
+exp_d1                 Number of beans in first interval, no fertilizer
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [0,6]                        units:  1
+         unique values:  7                        missing .:  130/196
+
+            tabulation:  Freq.  Value
+                             5  0
+                             5  1
+                            27  2
+                            15  3
+                             9  4
+                             3  5
+                             2  6
+                           130  .
+
+        missing values:         exp_7==mv <-> exp_d1==mv
+                                exp_8==mv <-> exp_d1==mv
+                               exp_d2==mv <-> exp_d1==mv
+                               exp_d3==mv <-> exp_d1==mv
+                               exp_d4==mv <-> exp_d1==mv
+                               exp_d5==mv <-> exp_d1==mv
+
+-----------------------------------------------------------------------
+exp_d2                Number of beans in second interval, no fertilizer
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [0,8]                        units:  1
+         unique values:  9                        missing .:  130/196
+
+            tabulation:  Freq.  Value
+                             4  0
+                             7  1
+                            14  2
+                            20  3
+                             7  4
+                            11  5
+                             1  6
+                             1  7
+                             1  8
+                           130  .
+
+        missing values:         exp_7==mv <-> exp_d2==mv
+                                exp_8==mv <-> exp_d2==mv
+                               exp_d1==mv <-> exp_d2==mv
+                               exp_d3==mv <-> exp_d2==mv
+                               exp_d4==mv <-> exp_d2==mv
+                               exp_d5==mv <-> exp_d2==mv
+
+-----------------------------------------------------------------------
+exp_d3                 Number of beans in third interval, no fertilizer
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [0,10]                       units:  1
+         unique values:  10                       missing .:  130/196
+
+                  mean:   3.59091
+              std. dev:   1.78004
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                                 1         3         3         4       
+>   6
+
+        missing values:         exp_7==mv <-> exp_d3==mv
+                                exp_8==mv <-> exp_d3==mv
+                               exp_d1==mv <-> exp_d3==mv
+                               exp_d2==mv <-> exp_d3==mv
+                               exp_d4==mv <-> exp_d3==mv
+                               exp_d5==mv <-> exp_d3==mv
+
+-----------------------------------------------------------------------
+exp_d4                Number of beans in fourth interval, no fertilizer
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [0,14]                       units:  1
+         unique values:  13                       missing .:  130/196
+
+                  mean:   4.60606
+              std. dev:   2.69974
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                                 2         3         4         5       
+>   8
+
+        missing values:         exp_7==mv <-> exp_d4==mv
+                                exp_8==mv <-> exp_d4==mv
+                               exp_d1==mv <-> exp_d4==mv
+                               exp_d2==mv <-> exp_d4==mv
+                               exp_d3==mv <-> exp_d4==mv
+                               exp_d5==mv <-> exp_d4==mv
+
+-----------------------------------------------------------------------
+exp_d5                 Number of beans in fifth interval, no fertilizer
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [0,20]                       units:  1
+         unique values:  15                       missing .:  130/196
+
+                  mean:   6.25758
+              std. dev:   3.96644
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                                 3         4         5         8       
+>  11
+
+        missing values:         exp_7==mv <-> exp_d5==mv
+                                exp_8==mv <-> exp_d5==mv
+                               exp_d1==mv <-> exp_d5==mv
+                               exp_d2==mv <-> exp_d5==mv
+                               exp_d3==mv <-> exp_d5==mv
+                               exp_d4==mv <-> exp_d5==mv
+
+-----------------------------------------------------------------------
+aspirations1          Accept reality of things > dream of better future
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  aspirations1
+
+                 range:  [0,10]                       units:  1
+         unique values:  11                       missing .:  0/196
+
+              examples:  1     Disagree strongly
+                         6     Agree a little
+                         9     Agree strongly
+                         10    Completely agree
+
+-----------------------------------------------------------------------
+aspirations2                           Have aspirations for family >
+                                       accept each day as it comes
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  aspirations2
+
+                 range:  [0,10]                       units:  1
+         unique values:  11                       missing .:  0/196
+
+              examples:  6     Agree a little
+                         8     Agree somewhat strongly
+                         9     Agree strongly
+                         10    Completely agree
+
+-----------------------------------------------------------------------
+aspirations3                    Satisfied with current farm production?
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  aspirations3
+
+                 range:  [0,10]                       units:  1
+         unique values:  11                       missing .:  0/196
+
+              examples:  0     Completely disagree
+                         1     Disagree strongly
+                         5     Neither agree nor disagree
+                         8     Agree somewhat strongly
+
+-----------------------------------------------------------------------
+aspirations4                           It is best to establish clear
+                                       production goals ahead of time
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  aspirations4
+
+                 range:  [0,10]                       units:  1
+         unique values:  11                       missing .:  0/196
+
+              examples:  8     Agree somewhat strongly
+                         9     Agree strongly
+                         9     Agree strongly
+                         10    Completely agree
+
+-----------------------------------------------------------------------
+aspirations5     Existing goals & plans for increasing yields & profits
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  aspirations5
+
+                 range:  [0,10]                       units:  1
+         unique values:  11                       missing .:  0/196
+
+              examples:  5     Neither agree nor disagree
+                         8     Agree somewhat strongly
+                         9     Agree strongly
+                         10    Completely agree
+
+-----------------------------------------------------------------------
+aspirations6           Future shaped by own actions > actions of others
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  aspirations6
+
+                 range:  [0,10]                       units:  1
+         unique values:  11                       missing .:  0/196
+
+              examples:  6     Agree a little
+                         9     Agree strongly
+                         10    Completely agree
+                         10    Completely agree
+
+-----------------------------------------------------------------------
+aspirations7                Hard work matters less than luck in farming
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  aspirations7
+
+                 range:  [0,10]                       units:  1
+         unique values:  11                       missing .:  0/196
+
+              examples:  0     Completely disagree
+                         0     Completely disagree
+                         1     Disagree strongly
+                         5     Neither agree nor disagree
+
+-----------------------------------------------------------------------
+aspirations8                   I can find a way to solve most problems.
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  aspirations8
+
+                 range:  [0,10]                       units:  1
+         unique values:  11                       missing .:  0/196
+
+              examples:  6     Agree a little
+                         8     Agree somewhat strongly
+                         9     Agree strongly
+                         10    Completely agree
+
+-----------------------------------------------------------------------
+aspirations9                I know what to do when rainfall will be low
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  aspirations9
+
+                 range:  [0,10]                       units:  1
+         unique values:  11                       missing .:  0/196
+
+              examples:  1     Disagree strongly
+                         6     Agree a little
+                         8     Agree somewhat strongly
+                         9     Agree strongly
+
+-----------------------------------------------------------------------
+aspirations10                I regularly check crops to maximize yields
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  aspirations10
+
+                 range:  [1,10]                       units:  1
+         unique values:  10                       missing .:  0/196
+
+              examples:  8     Agree somewhat strongly
+                         9     Agree strongly
+                         10    Completely agree
+                         10    Completely agree
+
+-----------------------------------------------------------------------
+aspirations11                Discouraged when maize < others in village
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  aspirations11
+
+                 range:  [0,10]                       units:  1
+         unique values:  11                       missing .:  0/196
+
+              examples:  2     Disagree somewhat strongly
+                         6     Agree a little
+                         8     Agree somewhat strongly
+                         10    Completely agree
+
+-----------------------------------------------------------------------
+aspirations12                 I could switch crops if maize prices fall
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  aspirations12
+
+                 range:  [0,10]                       units:  1
+         unique values:  11                       missing .:  0/196
+
+              examples:  1     Disagree strongly
+                         4     Disagree a little
+                         7     Agree somewhat
+                         9     Agree strongly
+
+-----------------------------------------------------------------------
+aspirations13      Fate (mine & family's) determined by powerful others
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  aspirations13
+
+                 range:  [0,10]                       units:  1
+         unique values:  11                       missing .:  0/196
+
+              examples:  0     Completely disagree
+                         1     Disagree strongly
+                         2     Disagree somewhat strongly
+                         5     Neither agree nor disagree
+
+-----------------------------------------------------------------------
+formdef_version                             Form version used on device
+-----------------------------------------------------------------------
+
+                  type:  numeric (long)
+
+                 range:  [1.702e+09,1.703e+09]        units:  100
+         unique values:  3                        missing .:  0/196
+
+            tabulation:  Freq.  Value
+                             4  1.702e+09
+                            11  1.702e+09
+                           181  1.703e+09
+
+-----------------------------------------------------------------------
+key                                                Unique submission ID
+-----------------------------------------------------------------------
+
+                  type:  string (str41)
+
+         unique values:  196                      missing "":  0/196
+
+              examples:  "uuid:290611f0-3b1d-4cfa-b5bf-3c7bc643e0b1"
+                         "uuid:591c7050-e6fe-4a5c-a91c-4a10c3c75ff2"
+                         "uuid:906f1322-3034-4ee8-aa4b-7c0ccc053760"
+                         "uuid:bb3735f1-a55d-41eb-93b2-7f8d265dfa4c"
+
+-----------------------------------------------------------------------
+submissiondate                                      Date/time submitted
+-----------------------------------------------------------------------
+
+                  type:  numeric (double)
+
+                 range:  [1.803e+12,1.806e+12]        units:  1000
+         unique values:  195                      missing .:  0/196
+
+                  mean:   1.8e+12
+              std. dev:   6.9e+08
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                           1.8e+12   1.8e+12   1.8e+12   1.8e+12   1.8e
+> +12
+
+-----------------------------------------------------------------------
+starttime                                                    Start Time
+-----------------------------------------------------------------------
+
+                  type:  numeric (double)
+
+                 range:  [1.803e+12,1.806e+12]        units:  1000
+         unique values:  196                      missing .:  0/196
+
+                  mean:   1.8e+12
+              std. dev:   6.9e+08
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                           1.8e+12   1.8e+12   1.8e+12   1.8e+12   1.8e
+> +12
+
+-----------------------------------------------------------------------
+endtime                                                        End Time
+-----------------------------------------------------------------------
+
+                  type:  numeric (double)
+
+                 range:  [1.803e+12,1.806e+12]        units:  1000
+         unique values:  196                      missing .:  0/196
+
+                  mean:   1.8e+12
+              std. dev:   6.8e+08
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                           1.8e+12   1.8e+12   1.8e+12   1.8e+12   1.8e
+> +12
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/gameP
+> ost/documentation/mm_gamePostCodeBook.log
+  log type:  text
+ closed on:  25 May 2020, 16:04:06
+-----------------------------------------------------------------------

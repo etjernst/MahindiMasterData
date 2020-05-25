@@ -1,0 +1,242 @@
+-----------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/distr
+> ibution/documentation/mm_distributionCodeBook.log
+  log type:  text
+ opened on:  25 May 2020, 16:04:06
+
+.                 
+. * Compact codebook
+.     codebook, compact
+
+Variable      Obs Unique      Mean       Min       Max  Label
+-----------------------------------------------------------------------
+key           191    191         .         .         .  Unique submi...
+hhid          191    185  1306.466       428      2333  Household ID
+village       191     19         .         .         .  Village
+county        191      2   5.60733         3         9  County
+consent       191      1         1         1         1  Consent
+enum          191      4  2.492147         1         4  Enumerator
+duration      191    107         .         .         .  Duration
+dap           191     15  25.58115         0        83  How much DAP...
+can           191     20  41.17801         0       100  How much CAN...
+lime          191      9  92.59162         0       500  How much lim...
+submission~e  191    188  1.81e+12  1.80e+12  1.81e+12  Date/time su...
+starttime     191    191  1.81e+12  1.80e+12  1.81e+12  Start Time
+endtime       191    191  1.81e+12  1.80e+12  1.81e+12  End Time
+-----------------------------------------------------------------------
+
+. 
+. * More details
+.     codebook,       mv
+
+-----------------------------------------------------------------------
+key                                                Unique submission ID
+-----------------------------------------------------------------------
+
+                  type:  string (str41)
+
+         unique values:  191                      missing "":  0/191
+
+              examples:  "uuid:40ab7c4d-be29-4d80-934a-64b98cfdfa2b"
+                         "uuid:6eb2fa83-4587-4374-8cda-b8528cfd8989"
+                         "uuid:9f8742bf-05bb-4d98-af71-7d2db28e9117"
+                         "uuid:cfa02637-9f7f-42c8-ad9a-c2e5f996d9db"
+
+-----------------------------------------------------------------------
+hhid                                                       Household ID
+-----------------------------------------------------------------------
+
+                  type:  numeric (int)
+
+                 range:  [428,2333]                   units:  1
+         unique values:  185                      missing .:  0/191
+
+                  mean:   1306.47
+              std. dev:   550.224
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                               459       937      1358      1633      1
+> 947
+
+-----------------------------------------------------------------------
+village                                                         Village
+-----------------------------------------------------------------------
+
+                  type:  string (str3)
+
+         unique values:  19                       missing "":  0/191
+
+              examples:  "25"
+                         "50"
+                         "73"
+                         "82"
+
+-----------------------------------------------------------------------
+county                                                           County
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+                 label:  county
+
+                 range:  [3,9]                        units:  1
+         unique values:  2                        missing .:  0/191
+
+            tabulation:  Freq.   Numeric  Label
+                           108         3  Homabay
+                            83         9  Migori
+
+-----------------------------------------------------------------------
+consent                                                         Consent
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [1,1]                        units:  1
+         unique values:  1                        missing .:  0/191
+
+            tabulation:  Freq.  Value
+                           191  1
+
+-----------------------------------------------------------------------
+enum                                                         Enumerator
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [1,4]                        units:  1
+         unique values:  4                        missing .:  0/191
+
+            tabulation:  Freq.  Value
+                            48  1
+                            49  2
+                            46  3
+                            48  4
+
+-----------------------------------------------------------------------
+duration                                                       Duration
+-----------------------------------------------------------------------
+
+                  type:  string (str5)
+
+         unique values:  107                      missing "":  0/191
+
+              examples:  "179"
+                         "339"
+                         "48"
+                         "68"
+
+-----------------------------------------------------------------------
+dap                             How much DAP did the participant order?
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [0,83]                       units:  1
+         unique values:  15                       missing .:  0/191
+
+                  mean:   25.5812
+              std. dev:   18.4794
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                                 0        17        25        40       
+>  50
+
+-----------------------------------------------------------------------
+can                             How much CAN did the participant order?
+-----------------------------------------------------------------------
+
+                  type:  numeric (byte)
+
+                 range:  [0,100]                      units:  1
+         unique values:  20                       missing .:  0/191
+
+                  mean:    41.178
+              std. dev:   24.4053
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                                 9        25        34        75       
+>  75
+
+-----------------------------------------------------------------------
+lime                           How much lime did the participant order?
+-----------------------------------------------------------------------
+
+                  type:  numeric (int)
+
+                 range:  [0,500]                      units:  1
+         unique values:  9                        missing .:  0/191
+
+            tabulation:  Freq.  Value
+                           121  0
+                             1  60
+                             1  100
+                             1  200
+                             1  215
+                            61  250
+                             1  260
+                             2  300
+                             2  500
+
+-----------------------------------------------------------------------
+submissiondate                                      Date/time submitted
+-----------------------------------------------------------------------
+
+                  type:  numeric (double)
+
+                 range:  [1.803e+12,1.806e+12]        units:  10000
+         unique values:  188                      missing .:  0/191
+
+                  mean:   1.8e+12
+              std. dev:   6.2e+08
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                           1.8e+12   1.8e+12   1.8e+12   1.8e+12   1.8e
+> +12
+
+-----------------------------------------------------------------------
+starttime                                                    Start Time
+-----------------------------------------------------------------------
+
+                  type:  numeric (double)
+
+                 range:  [1.803e+12,1.806e+12]        units:  1000
+         unique values:  191                      missing .:  0/191
+
+                  mean:   1.8e+12
+              std. dev:   6.2e+08
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                           1.8e+12   1.8e+12   1.8e+12   1.8e+12   1.8e
+> +12
+
+-----------------------------------------------------------------------
+endtime                                                        End Time
+-----------------------------------------------------------------------
+
+                  type:  numeric (double)
+
+                 range:  [1.803e+12,1.806e+12]        units:  1000
+         unique values:  191                      missing .:  0/191
+
+                  mean:   1.8e+12
+              std. dev:   6.2e+08
+
+           percentiles:        10%       25%       50%       75%       
+> 90%
+                           1.8e+12   1.8e+12   1.8e+12   1.8e+12   1.8e
+> +12
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/distr
+> ibution/documentation/mm_distributionCodeBook.log
+  log type:  text
+ closed on:  25 May 2020, 16:04:06
+-----------------------------------------------------------------------

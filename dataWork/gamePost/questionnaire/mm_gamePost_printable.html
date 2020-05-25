@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <style type="text/css">.clearfix { *zoom: 1; } .clearfix:before, .clearfix:after { display: table; content: ""; line-height: 0; } .clearfix:after { clear: both; } .hide-text { font: 0/0 a; color: transparent; text-shadow: none; background-color: transparent; border: 0; } .input-block-level { display: block; width: 100%; min-height: 30px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; } body { margin: 10px; font-family: "Arial Unicode MS", "Arial Unicode", Arial, sans-serif; -fs-pdf-font-embed: embed; -fs-pdf-font-encoding: Identity-H; font-size: 11px; line-height: 20px; color: #333333; background-color: #ffffff; } a { color: #0088cc; text-decoration: none; } a:hover, a:focus { color: #005580; text-decoration: underline; } .img-rounded { -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; } .img-polaroid { padding: 4px; background-color: #fff; border: 1px solid #ccc; border: 1px solid rgba(0, 0, 0, 0.2); -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); } .img-circle { -webkit-border-radius: 500px; -moz-border-radius: 500px; border-radius: 500px; } p { margin: 0 10px 0 0; } .lead { margin-bottom: 20px; font-size: 21px; font-weight: 200; line-height: 30px; } small { font-size: 85%; } strong { font-weight: bold; } em { font-style: italic; } cite { font-style: normal; } .muted { color: #999999; } a.muted:hover, a.muted:focus { color: #808080; } .text-warning { color: #c09853; } a.text-warning:hover, a.text-warning:focus { color: #a47e3c; } .text-publishError { color: #b94a48; } a.text-publishError:hover, a.text-publishError:focus { color: #953b39; } .text-info { color: #3a87ad; } a.text-info:hover, a.text-info:focus { color: #2d6987; } .text-success { color: #468847; } a.text-success:hover, a.text-success:focus { color: #356635; } .text-left { text-align: left; } .text-right { text-align: right; } .text-center { text-align: center; } h1, h2, h3, h4, h5, h6 { margin: 10px 0; font-family: inherit; font-weight: bold; line-height: 20px; color: inherit; text-rendering: optimizelegibility; } h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { font-weight: normal; line-height: 1; color: #999999; } h1, h2, h3 { line-height: 40px; } h1 { font-size: 38.5px; } h2 { font-size: 31.5px; } h3 { font-size: 24.5px; } h4 { font-size: 17.5px; } h5 { font-size: 14px; } h6 { font-size: 11.9px; } h1 small { font-size: 24.5px; } h2 small { font-size: 17.5px; } h3 small { font-size: 14px; } h4 small { font-size: 14px; } .page-header { padding-bottom: 9px; margin: 20px 0 30px; border-bottom: 1px solid #eeeeee; } ul, ol { padding: 0; margin: 0 0 10px 25px; } ul ul, ul ol, ol ol, ol ul { margin-bottom: 0; } li { line-height: 20px; } ul.unstyled, ol.unstyled { margin-left: 0; list-style: none; } ul.inline, ol.inline { margin-left: 0; list-style: none; } ul.inline li, ol.inline li { display: inline-block; *display: inline; *zoom: 1; padding-left: 5px; padding-right: 5px; } dl { margin-bottom: 20px; } dt, dd { line-height: 20px; } dt { font-weight: bold; } dd { margin-left: 10px; } .dl-horizontal { *zoom: 1; } .dl-horizontal:before, .dl-horizontal:after { display: table; content: ""; line-height: 0; } .dl-horizontal:after { clear: both; } .dl-horizontal dt { float: left; width: 160px; clear: left; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .dl-horizontal dd { margin-left: 180px; } hr { margin: 20px 0; border: 0; border-top: 1px solid #eeeeee; border-bottom: 1px solid #ffffff; } abbr[title], abbr[data-original-title] { cursor: help; border-bottom: 1px dotted #999999; } abbr.initialism { font-size: 90%; text-transform: uppercase; } blockquote { padding: 0 0 0 15px; margin: 0 0 20px; border-left: 5px solid #eeeeee; } blockquote p { margin-bottom: 0; font-size: 17.5px; font-weight: 300; line-height: 1.25; } blockquote small { display: block; line-height: 20px; color: #999999; } blockquote small:before { content: '\2014 \00A0'; } blockquote.pull-right { float: right; padding-right: 15px; padding-left: 0; border-right: 5px solid #eeeeee; border-left: 0; } blockquote.pull-right p, blockquote.pull-right small { text-align: right; } blockquote.pull-right small:before { content: ''; } blockquote.pull-right small:after { content: '\00A0 \2014'; } q:before, q:after, blockquote:before, blockquote:after { content: ""; } address { display: block; margin-bottom: 20px; font-style: normal; line-height: 20px; } table { max-width: 100%; background-color: transparent; border-collapse: collapse; border-spacing: 0; } .table { width: 100%; /*margin-bottom: 20px;*/ } .table th, .table td { padding: 8px; line-height: 20px; text-align: left; vertical-align: top; border-top: 1px solid #dddddd; } .table th { font-weight: bold; } .table thead th { vertical-align: bottom; } .table caption+thead tr:first-child th, .table caption+thead tr:first-child td, .table colgroup+thead tr:first-child th, .table colgroup+thead tr:first-child td, .table thead:first-child tr:first-child th, .table thead:first-child tr:first-child td { border-top: 0; } .table tbody+tbody { border-top: 2px solid #dddddd; } .table .table { background-color: #ffffff; } .table-condensed th, .table-condensed td { padding: 0; } .table-bordered { border: 1px solid #dddddd; border-collapse: collapse; border-left: 0; /*-webkit-border-radius: 4px;*/ /*-moz-border-radius: 4px;*/ /*border-radius: 4px;*/ } .table-bordered th, .table-bordered td { border-left: 1px solid #dddddd; } .table-bordered caption+thead tr:first-child th, .table-bordered caption+tbody tr:first-child th, .table-bordered caption+tbody tr:first-child td, .table-bordered colgroup+thead tr:first-child th, .table-bordered colgroup+tbody tr:first-child th, .table-bordered colgroup+tbody tr:first-child td, .table-bordered thead:first-child tr:first-child th, .table-bordered tbody:first-child tr:first-child th, .table-bordered tbody:first-child tr:first-child td { border-top: 0; } .table-bordered thead:first-child tr:first-child th:first-child, .table-bordered tbody:first-child tr:first-child td:first-child, .table-bordered tbody:first-child tr:first-child th:first-child { /*-webkit-border-top-left-radius: 4px;*/ /*-moz-border-radius-topleft: 4px;*/ /*border-top-left-radius: 4px;*/ } .table-bordered thead:first-child tr:first-child th:last-child, .table-bordered tbody:first-child tr:first-child td:last-child, .table-bordered tbody:first-child tr:first-child th:last-child { /*-webkit-border-top-right-radius: 4px;*/ /*-moz-border-radius-topright: 4px;*/ /*border-top-right-radius: 4px;*/ } .table-bordered thead:last-child tr:last-child th:first-child, .table-bordered tbody:last-child tr:last-child td:first-child, .table-bordered tbody:last-child tr:last-child th:first-child, .table-bordered tfoot:last-child tr:last-child td:first-child, .table-bordered tfoot:last-child tr:last-child th:first-child { /*-webkit-border-bottom-left-radius: 4px;*/ /*-moz-border-radius-bottomleft: 4px;*/ /*border-bottom-left-radius: 4px;*/ } .table-bordered thead:last-child tr:last-child th:last-child, .table-bordered tbody:last-child tr:last-child td:last-child, .table-bordered tbody:last-child tr:last-child th:last-child, .table-bordered tfoot:last-child tr:last-child td:last-child, .table-bordered tfoot:last-child tr:last-child th:last-child { /*-webkit-border-bottom-right-radius: 4px;*/ /*-moz-border-radius-bottomright: 4px;*/ /*border-bottom-right-radius: 4px;*/ } .table-bordered tfoot+tbody:last-child tr:last-child td:first-child { /*-webkit-border-bottom-left-radius: 0;*/ /*-moz-border-radius-bottomleft: 0;*/ /*border-bottom-left-radius: 0;*/ } .table-bordered tfoot+tbody:last-child tr:last-child td:last-child { /*-webkit-border-bottom-right-radius: 0;*/ /*-moz-border-radius-bottomright: 0;*/ /*border-bottom-right-radius: 0;*/ } .table-bordered caption+thead tr:first-child th:first-child, .table-bordered caption+tbody tr:first-child td:first-child, .table-bordered colgroup+thead tr:first-child th:first-child, .table-bordered colgroup+tbody tr:first-child td:first-child { /*-webkit-border-top-left-radius: 4px;*/ /*-moz-border-radius-topleft: 4px;*/ /*border-top-left-radius: 4px;*/ } .table-bordered caption+thead tr:first-child th:last-child, .table-bordered caption+tbody tr:first-child td:last-child, .table-bordered colgroup+thead tr:first-child th:last-child, .table-bordered colgroup+tbody tr:first-child td:last-child { /*-webkit-border-top-right-radius: 4px;*/ /*-moz-border-radius-topright: 4px;*/ /*border-top-right-radius: 4px;*/ } .table-striped tbody tr:nth-child(odd) td, .table-striped tbody tr:nth-child(odd) th { background-color: #f9f9f9; } .table-hover tbody tr:hover td, .table-hover tbody tr:hover th { background-color: #f5f5f5; } table td[class*="span"], table th[class*="span"], .row-fluid table td[class*="span"], .row-fluid table th[class*="span"] { display: table-cell; float: none; margin-left: 0; } .table td.span1, .table th.span1 { float: none; width: 44px; margin-left: 0; } .table td.span2, .table th.span2 { float: none; width: 124px; margin-left: 0; } .table td.span3, .table th.span3 { float: none; width: 204px; margin-left: 0; } .table td.span4, .table th.span4 { float: none; width: 284px; margin-left: 0; } .table td.span5, .table th.span5 { float: none; width: 364px; margin-left: 0; } .table td.span6, .table th.span6 { float: none; width: 444px; margin-left: 0; } .table td.span7, .table th.span7 { float: none; width: 524px; margin-left: 0; } .table td.span8, .table th.span8 { float: none; width: 604px; margin-left: 0; } .table td.span9, .table th.span9 { float: none; width: 684px; margin-left: 0; } .table td.span10, .table th.span10 { float: none; width: 764px; margin-left: 0; } .table td.span11, .table th.span11 { float: none; width: 844px; margin-left: 0; } .table td.span12, .table th.span12 { float: none; width: 924px; margin-left: 0; } .table tbody tr.success td { background-color: #dff0d8; } .table tbody tr.publishError td { background-color: #f2dede; } .table tbody tr.warning td { background-color: #fcf8e3; } .table tbody tr.info td { background-color: #d9edf7; } .table-hover tbody tr.success:hover td { background-color: #d0e9c6; } .table-hover tbody tr.publishError:hover td { background-color: #ebcccc; } .table-hover tbody tr.warning:hover td { background-color: #faf2cc; } .table-hover tbody tr.info:hover td { background-color: #c4e3f3; } .table tbody tr.gray td { background-color: #f9f9f9; } .table tbody tr.entryRow { height: 20px; } .hidden { visibility: hidden; } table.leveled { border-collapse: collapse; } .leveled td { /*border: 0;*/ } .spacer { /*border-radius: 0;*/ padding: 0; margin: 0; width: 10px; min-width: 10px; max-width: 10px; /*display: inline-block;*/ /*float: left;*/ } th.headerCell { padding-left: 5px; font-size: 12px; } td.questionCell { padding-left: 5px; } td.answerCell { padding-left: 5px; } td.fieldCell { white-space: nowrap; } td.response-note-cell { min-width: 15px; padding-left: 3px; padding-right: 3px; text-align: center; vertical-align: middle; font-size: 13px; } p.constraint, p.relevance { font-style: italic; padding-left: 10px; } p.hint { font-size: 10px; line-height: 14px; font-style: italic; } table.borderless td { border: 0; } p.noteHolder { border: 1px dotted #A9A9A9; margin: 3px; padding: 3px; white-space: normal; font-style: italic; } img.questionPrompt { max-width: 580px; } img.choicePrompt { max-width: 130px; } .required { color: red; font-style: italic; }
+  </style>
+ </head>
+ <body>
+  <div style="margin: auto; width: 1000px">
+   <h4>MahindiMaster POST</h4>
+   <table class="table table-bordered table-condensed" style="height: 100%; width: 100%">
+    <thead>
+     <tr>
+      <th style="width: 20%;" class="headerCell"> <h6>Field</h6> </th>
+      <th style="width: 60%;" class="headerCell"> <h6>Question</h6> </th>
+      <th style="width: 20%;" class="headerCell"> <h6>Answer</h6> </th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>enum <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Enumerator</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>.</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>.</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>.</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>.</span> </td> 
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>county <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Enumerator: In what county are you filling out this survey?</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Homabay</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">9</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Migori</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>village <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Enumerator: In what village are you filling out this survey?</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">name</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>label</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>hhid <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Enumerator: What household are you interviewing?</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">name</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>label</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>plant_seq <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">How similar is the way the game shows planting compared to how you normally plant? <p class="hint">Both in terms of order and details of steps</p></td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>The game planting sequence is similar to how I plant</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>The game planting sequence is somewhat similar to how I plant</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>The game planting sequence is slightly different from how I plant</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>The game planting sequence is very different from how I plant</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>I never use fertilizer</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">99</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Other, specify</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>plant_seq_o <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Other, specify <p class="relevance">Question relevant when: selected( ${plant_seq} ,'99')</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>plant_seq2 <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">What is different? <p class="relevance">Question relevant when: ${plant_seq} &gt;2</p></td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>No digging a hole</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Planting in farrows vs holes</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Number of seeds per hole</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>I don't normally separate seed &amp; fertilizer</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Hands vs spoons for fertilizer</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">6</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>The rains are more in the game</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">7</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>The rains are less in the game</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">8</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Harvest was very fast</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">9</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>CAN is too far from plant</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">10</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>I don't normally cover CAN</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">11</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Lime is used, I don't normally use lime</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">12</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Maize plant looks like has flowers</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">13</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Spacing is different</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>plant_fun <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Did you enjoy playing the game?</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Yes</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">0</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>No</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>plant_learn <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Did you learn something new from the game?</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Yes</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">0</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>No</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>yield_compare <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Do you think overall the yields in the game are … than what you would get with the same inputs on your field?</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Much higher</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Higher</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>The same</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Lower</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Much lower</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>yield_compare2 <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Why do you think they are different? <p class="relevance">Question relevant when: ${yield_compare} !=3</p></td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>The rainfall in the game is higher</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>The rainfall in the game is lower</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>On my field there are also pests that affect yields</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>On my field my crops may also face diseases that affect yields</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>The game understates the fertility of my field</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">6</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>The game overstates the fertility of my field</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">7</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Other, specify</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>yield_specify <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Please comment on what other reasons for differences between game and real life <p class="relevance">Question relevant when: ${yield_compare2} =7</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>risk1 <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">How do you see yourself: Are you generally a person who is fully prepared to take risks or do you try to avoid taking risks?</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Not at all willing to take risks</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Somewhat UNwilling to take risks</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Neither willing not unwilling</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Somewhat willing to take risks</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Very willing to take risks</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>risk2 <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">How do you see yourself: Are you a person who is fully prepared to take risks ON YOUR FARM or do you try to avoid taking risks ON YOUR FARM?</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Not at all willing to take risks</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Somewhat UNwilling to take risks</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Neither willing not unwilling</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Somewhat willing to take risks</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Very willing to take risks</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>risknote</span> </td>
+      <td class="questionCell">Now, please imagine choosing between two different bags that have balls of differing values in them. For whichever bag you choose, you can only pick one ball without looking inside the bag. <br /> <br />The value written on the ball will tell you the amount of money that you would win if this were a lottery. <br /> <br />We will describe the bags, and then ask you which bag you would prefer to choose ONE BALL from.</td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>risk3 <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Bag 1: one ball worth 3000 Ksh. <br /> <br />Bag 2: two balls. <br />One ball is worth 3000 Ksh <br />The other ball is worth 5000 Ksh. <br /> <br />Which bag would you choose? <p class="hint">3000</p></td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>3000-ball</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Hands / bag</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>risk4 <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Are you sure of your choice? <br /> <br />Bag 1 has one ball worth 3000 Ksh. Bag 2 has two balls. One is worth 3000 Ksh, and the other is worth 5000 Ksh. <br /> <br />If you choose Bag 2, you will win at least 3000 Ksh and have an equal chance of winning 5000 Ksh. <br />Which bag would you choose? <p class="hint">3000</p> <p class="relevance">Question relevant when: ${risk3} =1</p></td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>3000-ball</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Hands / bag</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>risk5 <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Bag 1: one ball worth 3000 Ksh. <br /> <br />Bag 2: two balls. <br />One ball is worth 2500 Ksh <br />The other ball is worth 5000 Ksh. <br /> <br />Which bag would you choose? <p class="hint">2500</p> <p class="relevance">Question relevant when: ${risk3} =2</p></td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>3000-ball</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Hands / bag</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>risk6 <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Bag 1: one ball worth 3000 Ksh. <br /> <br />Bag 2: two balls. <br />One ball is worth 2000 Ksh <br />The other ball is worth 5000 Ksh. <br /> <br />Which bag would you choose? <p class="hint">2000</p> <p class="relevance">Question relevant when: ${risk5} =2</p></td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>3000-ball</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Hands / bag</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>risk7 <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Bag 1: one ball worth 3000 Ksh. <br /> <br />Bag 2: two balls. <br />One ball is worth 1500 Ksh <br />The other ball is worth 5000 Ksh. <br /> <br />Which bag would you choose? <p class="hint">1500</p> <p class="relevance">Question relevant when: ${risk6} =2</p></td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>3000-ball</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Hands / bag</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>risk8 <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Bag 1: one ball worth 3000 Ksh. <br /> <br />Bag 2: two balls. <br />One ball is worth 1000 Ksh <br />The other ball is worth 5000 Ksh. <br /> <br />Which bag would you choose? <p class="hint">1000</p> <p class="relevance">Question relevant when: ${risk7} =2</p></td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>3000-ball</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Hands / bag</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>risk9 <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Bag 1: one ball worth 3000 Ksh. <br /> <br />Bag 2: two balls. <br />One ball is worth 500 Ksh <br />The other ball is worth 5000 Ksh. <br /> <br />Which bag would you choose? <p class="hint">500</p> <p class="relevance">Question relevant when: ${risk8} =2</p></td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>3000-ball</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Hands / bag</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>exp_explain1</span> </td>
+      <td class="questionCell">We would like to ask you 2 more expectations questions on this same field that we took soil samples on a few months ago</td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>p_size_unit <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Remember the field on which we took soil samples a few months ago? <br />What size is this field in acres? [units]</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>acres</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>hectares</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>meters&sup2;</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>paces</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>p_sizeA <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">What size is this field in acres? <p class="relevance">Question relevant when: selected( ${p_size_unit} ,'1')</p> <p class="constraint">Response constrained to: .&gt;0</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>p_sizeH <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">What size is this field in hectares? <p class="relevance">Question relevant when: selected( ${p_size_unit} ,'2')</p> <p class="constraint">Response constrained to: .&gt;0</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>p_sizeM <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">What size is this field in m&sup2;? <p class="relevance">Question relevant when: selected( ${p_size_unit} ,'3')</p> <p class="constraint">Response constrained to: .&gt;0</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px; background-color: #707070; color: #FFFFFF;" colspan="3"> <span>Parcel size in paces</span> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>p_sizeP1 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">What is the width of this field in paces? <p class="relevance">Question relevant when: selected( ${p_size_unit} ,'4')</p> <p class="constraint">Response constrained to: .&gt;0</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>p_sizeP2 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">What is the length of this field in paces? <p class="relevance">Question relevant when: selected( ${p_size_unit} ,'4')</p> <p class="constraint">Response constrained to: .&gt;0</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>p_size_acresT</span> </td>
+      <td class="questionCell">Enumerator: This parcel [p_size_acres] acres.</td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>exp_explain4</span> </td>
+      <td class="questionCell">Think of the hybrid seed and fertilizer that you USUALLY apply on this field since 2013</td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>exp_5 <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Now go back and again imagine all the reasons why you might have a very bad maize harvest -- the worst that you can imagine for the long rains. <br />In this WORST YEAR that you can imagine, how many bags do you think that you would harvest IF YOU APPLIED THE FERTILIZER amounts you just told us about? <p class="constraint">Response constrained to: .&gt;=0</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>exp_6 <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Imagine all the reasons why you might have a very, very good maize harvest on this field -- the best that you can imagine for the long rains. <br />In this BEST YEAR that you can imagine, how many bags do you think that you would harvest IF YOU APPLIED THE FERTILIZER amounts you just told us about? <p class="constraint">Response constrained to: .&gt;=0 and .&gt; ${exp_5}</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>exp_explain6</span> </td>
+      <td class="questionCell">Using this fertilizer combinations you just told us about, please allocate beans based on how many years out of the next 20 you think your yields will be in these different intervals on your best maize field.</td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>exp_graph2</span> </td>
+      <td class="questionCell">Enumerator: please write these numbers on the yield interval card <br /> <br /> <br /> <br />c0 = [exp_5] <br />c1 = [c1] <br />c2 = [c2] <br />c3 = [c3] <br />c4 = [c4] <br />c5 = [exp_6]</td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px; background-color: #707070; color: #FFFFFF;" colspan="3"> <span>How many beans did the respondent place in…</span> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>exp_c1 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">the first interval? ([exp_5] to [c1]) <p class="constraint">Response constrained to: .&lt;=20 and .&gt;=0</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>exp_c2 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">the second interval? ([c1] to [c2]) <p class="constraint">Response constrained to: .&lt;=20 and ( ${exp_c1} +.)&lt;=20 and .&gt;=0</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>exp_c3 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">the third interval? ([c2] to [c3]) <p class="constraint">Response constrained to: .&lt;=20 and ( ${exp_c1} + ${exp_c2} +.)&lt;=20 and .&gt;=0</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>exp_c4 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">the fourth interval? ([c3] to [c4]) <p class="constraint">Response constrained to: .&lt;=20 and ${exp_c1} +( ${exp_c2} + ${exp_c3} +.)&lt;=20 and .&gt;=0</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>exp_c5 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">the fifth interval? ([c4] to [exp_6]) <p class="constraint">Response constrained to: .&lt;=20 and ( ${exp_c1} + ${exp_c2} + ${exp_c3} + ${exp_c4} +.)=20 and .&gt;=0</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>exp_explain7</span> </td>
+      <td class="questionCell">Now we will ask about your expectations of yields, if you had applied the fertilizer you told us you normally use and ALSO APPLY [lime] kg of LIME to this field <p class="hint">Enumerator: if the farmer says they do not know, you can enter the same distribution as above.</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>exp_probe</span> </td>
+      <td class="questionCell">Enumerator: please probe as much as you can, but if the farmer insists they have NO IDEA, you can select &quot;no idea&quot;</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">0</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Farmer has NO IDEA</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Proceed</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>exp_7 <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Now please think of this maize field on which we took soil samples a few months ago. <br /> <br />Imagine all the reasons why you might have a very bad maize harvest -- the worst that you can imagine for the long rains. <br />In this WORST YEAR that you can imagine, how many bags do you think that you would harvest IF YOU APPLIED THE FERTILIZER amounts you just told us about and ALSO APPLY [lime] kg of LIME to this field? <p class="relevance">Question relevant when: ${exp_probe} =1</p> <p class="constraint">Response constrained to: .&gt;=0</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>exp_8 <span class="required">(required)</span> </span> </td>
+      <td class="questionCell">Imagine all the reasons why you might have a very, very good maize harvest on this field -- the best that you can imagine for the long rains. <br />In this BEST YEAR that you can imagine, how many bags do you think that you would harvest IF YOU APPLIED THE FERTILIZER amounts you just told us about and ALSO APPLY [lime] kg of LIME to this field? <p class="relevance">Question relevant when: ${exp_probe} =1</p> <p class="constraint">Response constrained to: .&gt;=0 and .&gt; ${exp_7}</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>exp_explain8</span> </td>
+      <td class="questionCell">Using the fertilizer combinations you told us you normally use, plus [lime] kg of lime, please allocate beans based on how many years out of the next 20 you think your yields will be in these different intervals on your best maize field. <p class="relevance">Question relevant when: ${exp_probe} =1</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="entryRow">
+      <td style="padding-left: 5px;" class="fieldCell"> <span>exp_graph3</span> </td>
+      <td class="questionCell">Enumerator: please write these numbers on the yield interval card <br /> <br /> <br /> <br />d0 = [exp_7] <br />d1 = [d1] <br />d2 = [d2] <br />d3 = [d3] <br />d4 = [d4] <br />d5 = [exp_8] <p class="relevance">Question relevant when: ${exp_probe} =1</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px; background-color: #707070; color: #FFFFFF;" colspan="3"> <span>How many beans did the respondent place in…</span> <p class="relevance">Group relevant when: ${exp_probe} =1</p> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>exp_d1 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">the first interval? ([exp_7] to [d1]) <p class="relevance">Question relevant when: ${exp_probe} =1</p> <p class="constraint">Response constrained to: .&lt;=20 and .&gt;=0</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>exp_d2 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">the second interval? ([d1] to [d2]) <p class="relevance">Question relevant when: ${exp_probe} =1</p> <p class="constraint">Response constrained to: .&lt;=20 and ( ${exp_d1} +.)&lt;=20 and .&gt;=0</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>exp_d3 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">the third interval? ([d2] to [d3]) <p class="relevance">Question relevant when: ${exp_probe} =1</p> <p class="constraint">Response constrained to: .&lt;=20 and ( ${exp_d1} + ${exp_d2} +.)&lt;=20 and .&gt;=0</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>exp_d4 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">the fourth interval? ([d3] to [d4]) <p class="relevance">Question relevant when: ${exp_probe} =1</p> <p class="constraint">Response constrained to: .&lt;=20 and ${exp_d1} +( ${exp_d2} + ${exp_d3} +.)&lt;=20 and .&gt;=0</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>exp_d5 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">the fifth interval? ([d4] to [exp_8]) <p class="relevance">Question relevant when: ${exp_probe} =1</p> <p class="constraint">Response constrained to: .&lt;=20 and ( ${exp_d1} + ${exp_d2} + ${exp_d3} + ${exp_d4} +.)=20 and .&gt;=0</p></td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="padding-left: 5px; background-color: #707070; color: #FFFFFF;" colspan="3"> <span>asp</span> <p class="relevance">Group relevant when: ${hhid_odd} =1</p> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>aspirations</span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">Now we want to ask you some questions about how you feel</td>
+      <td class="answerCell response-note-cell"></td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>aspirations1 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">It is better learn to accept the reality of things than to dream of a better future.</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">0</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Neither agree nor disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">6</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">7</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">8</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">9</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">10</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely agree</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>aspirations2 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">It is better to have aspirations for your family than to accept each day as it comes.</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">0</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Neither agree nor disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">6</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">7</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">8</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">9</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">10</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely agree</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>aspirations3 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">I am satisfied with the current levels of production from my farm.</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">0</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Neither agree nor disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">6</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">7</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">8</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">9</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">10</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely agree</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>aspirations4 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">It is wiser to establish clear production goals for my farm than to address situations as they arrive.</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">0</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Neither agree nor disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">6</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">7</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">8</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">9</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">10</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely agree</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>aspirations5 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">I have specific goals and plans for increasing my yields and my farm profits in the future.</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">0</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Neither agree nor disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">6</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">7</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">8</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">9</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">10</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely agree</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>aspirations6 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">My future is shaped mainly by my own actions rather by than the actions of others.</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">0</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Neither agree nor disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">6</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">7</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">8</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">9</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">10</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely agree</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>aspirations7 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">To really prosper, a farmer must be lucky because hard work doesn’t really matter.</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">0</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Neither agree nor disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">6</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">7</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">8</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">9</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">10</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely agree</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>aspirations8 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">I can find a way to solve most problems.</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">0</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Neither agree nor disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">6</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">7</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">8</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">9</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">10</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely agree</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>aspirations9 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">If I believe rainfall is going to be low during the growing season, I know how to modify my production practices to adapt.</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">0</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Neither agree nor disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">6</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">7</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">8</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">9</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">10</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely agree</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>aspirations10 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">I regularly check my crops during the growing season so I know what I need to do to get the best yield possible.</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">0</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Neither agree nor disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">6</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">7</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">8</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">9</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">10</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely agree</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>aspirations11 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">I become discouraged easily when my maize is not growing as well as others in my village.</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">0</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Neither agree nor disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">6</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">7</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">8</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">9</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">10</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely agree</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>aspirations12 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">If maize prices fall, I could easily learn how to grow other crops instead.</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">0</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Neither agree nor disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">6</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">7</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">8</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">9</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">10</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely agree</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+     <tr class="gray entryRow">
+      <td style="height: 100%;">
+       <div style="height: 100%; width: 100%">
+        <table class="table borderless" style="height: 100%">
+         <tr>
+          <td class="spacer" style="background-color: #707070;"></td>
+          <td class="fieldCell" style="padding-left: 5px;"> <span>aspirations13 <span class="required">(required)</span> </span> </td>
+         </tr>
+        </table>
+       </div> </td>
+      <td class="questionCell">What happens to me and my family depends on powerful people rather than ourselves.</td>
+      <td>
+       <table class="table table-bordered table-condensed">
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">0</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">1</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">2</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">3</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">4</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Disagree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">5</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Neither agree nor disagree</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">6</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree a little</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">7</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">8</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree somewhat strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">9</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Agree strongly</span> </td>
+        </tr>
+        <tr>
+         <td class="response-note-cell"></td>
+         <td style="text-align: center; padding-left: 3px; padding-right: 3px;">10</td>
+         <td style="width: 100%; padding-left: 3px; padding-right: 3px;"> <span>Completely agree</span> </td>
+        </tr>
+       </table> </td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </body>
+</html>

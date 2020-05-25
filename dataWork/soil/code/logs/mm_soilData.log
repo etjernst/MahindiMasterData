@@ -1,0 +1,193 @@
+-----------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/soil/
+> code/logs/mm_soilData.log
+  log type:  text
+ opened on:  25 May 2020, 16:04:01
+
+. 
+. * Project:                      MahindiMaster
+. * Created:                      2020/05/01 - ET
+. * Last modified:        2020/05/25 - ET
+. * Stata                         v.16.1
+. 
+. 
+. * *******************************************************************
+> ***
+. * 1 (a) - Open raw soil data, remove PID
+. * *******************************************************************
+> ***
+. * Open soil data
+.     import excel        "$soil/dataSets/raw/pid/soil_Oct2016.xls"    
+>    ///
+>                         , sheet("University of California") firstrow 
+>    ///
+>                         cellrange(F1:X201) case(lower) clear
+(19 vars, 200 obs)
+
+. 
+. * Create numeric ID variable
+.     encode              fieldname, gen(idmerge)
+
+. 
+. * Remove value labels (since they are names)
+.     label drop          idmerge
+
+. 
+. * Drop some irrelevant variables (either repeated info or missing)
+.     list                crop depth condition in 1/10
+
+     +-----------------------------+
+     |  crop      depth   condit~n |
+     |-----------------------------|
+  1. | Maize   Top Soil          . |
+  2. | Maize   Top Soil          . |
+  3. | Maize   Top Soil          . |
+  4. | Maize   Top Soil          . |
+  5. | Maize   Top Soil          . |
+     |-----------------------------|
+  6. | Maize   Top Soil          . |
+  7. | Maize   Top Soil          . |
+  8. | Maize   Top Soil          . |
+  9. | Maize   Top Soil          . |
+ 10. | Maize   Top Soil          . |
+     +-----------------------------+
+
+.     count               if !mi(condition)
+  0
+
+.     drop                crop depth condition
+
+. 
+. * Drop village identifier (comments) and fieldname (farmername)
+.     drop                comments fieldname
+
+.     lab var             idmerge "ID variable for merging soil tests"
+
+. 
+. * *******************************************************************
+> ***
+. * 1 (b) - Basic formatting
+. * *******************************************************************
+> ***
+. * Phosphorus & suplhur have non-numeric variables
+.     replace             phosphorus = "0.20" if phosphorus == "< 0.20"
+(1 real change made)
+
+.     replace             sulphur = "0.50" if sulphur == "< 0.50"
+(1 real change made)
+
+. 
+. * Destring since should be numeric
+.     destring            phosphorus, gen(p)
+phosphorus: all characters numeric; p generated as double
+
+.     label               variable          p "Phosphorous, numeric"
+
+.     order               p, after(phosphorus)
+
+. 
+.     destring            sulphur, gen(s)
+sulphur: all characters numeric; s generated as double
+
+.     label               variable      s "Sulphur, numeric"
+
+.     order               s, after(sulphur)
+
+. 
+. * Save data set
+.     customsave,         idvar(idmerge) filename(mm_soilData)  ///
+>                         path($soil/dataSets/intermediate)       ///
+>                         dofile(mm_soilData.do)                  ///
+>                         description("Soil data with basic formatting"
+> )  ///
+>                         user(Emilia Tjernström)
+
+Observations in this data set are identified by idmerge.  This data set
+>  was created with .do file mm_soilData.do  by user Emilia Tjernström 
+> using computer WFTB9Q03  | Last modified on 25 May 2020
+
+. 
+. 
+. * *******************************************************************
+> ***
+. * 2 (a) - Open spreadsheet that tracked HHID merges, remove PID
+. * *******************************************************************
+> ***
+. 
+. * Import spreadsheet that links soil data to household ID
+.         import excel        name = B hhid = D       ///
+>                         using "$soil/dataSets/raw/pid/HHIDmatching.xl
+> sx"  ///
+>                         , sheet("Sheet1") clear cellrange(B2:D201)
+(2 vars, 200 obs)
+
+. 
+. * Create numeric ID variable
+.     encode              name, gen(idmerge)
+
+. 
+. * Remove value labels (since they are names)
+.     label drop          idmerge
+
+. 
+. * Keep only the id variable and the household ID to match
+.     keep                hhid idmerge
+
+.     lab var             hhid "Household ID"
+
+.     lab var             idmerge "ID variable for merging soil tests"
+
+. 
+. * *******************************************************************
+> ***
+. * 2 (b) - Add HHID to soil data
+. * *******************************************************************
+> ***
+. 
+. * Merge 1:1 with the soil data
+.     merge 1:1 idmerge using "$soil/dataSets/intermediate/mm_soildata"
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                             0
+    matched                               200  (_merge==3)
+    -----------------------------------------
+
+.     * All merge fine
+. 
+.     drop _merge idmerge
+
+. 
+. * Save data set
+.     customsave,         idvar(hhid) filename(mm_soilData)            
+>    ///
+>                         path($soil/dataSets/intermediate)            
+>    ///
+>                         dofile(mm_soilData.do)                       
+>    ///
+>                         description("Soil data with HHID for merging"
+> )  ///
+>                         user(Emilia Tjernström)
+
+Observations in this data set are identified by hhid.  This data set wa
+> s created with .do file mm_soilData.do  by user Emilia Tjernström usi
+> ng computer WFTB9Q03  | Last modified on 25 May 2020
+
+. 
+. * Generate a .csv file as well
+.     export delimited    "$soil/dataSets/intermediate/mm_soilData.csv"
+> , replace
+(note: file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/soil/d
+> ataSets/intermediate/mm_soilData.csv not found)
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/soil/dataSets
+> /intermediate/mm_soilData.csv saved
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/soil/
+> code/logs/mm_soilData.log
+  log type:  text
+ closed on:  25 May 2020, 16:04:02
+-----------------------------------------------------------------------

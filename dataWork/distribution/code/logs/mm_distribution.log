@@ -1,0 +1,266 @@
+-----------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/distr
+> ibution/code/logs/mm_distribution.log
+  log type:  text
+ opened on:  25 May 2020, 16:04:06
+
+. 
+. * Project:                      MahindiMaster
+. * Created:                      2020/05/01 - ET
+. * Last modified:        2020/05/25 - ET
+. * Stata                         v.16.1
+. 
+. * *******************************************************************
+> ***
+. * 1 (a) - Initialize form-specific parameters
+. * *******************************************************************
+> ***
+. 
+.         local                   csvfile ///
+>                         "$distribution/dataSets/raw/MahindiMaster Dis
+> tribution.csv"
+
+.         local                   dtafile ///
+>                         "$distribution/dataSets/intermediate/MahindiM
+> aster Distribution.dta"
+
+. 
+.         local                   repeat_groups_csv1 ""
+
+.         local                   repeat_groups_stata1 ""
+
+.         local                   repeat_groups_short_stata1 ""
+
+. 
+.         local                   note_fields1 "scaled dap_scale can_sc
+> ale lime_scale formdef"
+
+.         local                   note_fields2 "village_name"
+
+.         local                   text_fields1 "deviceid subscriberid s
+> imid devicephonenum username duration caseid comments village hhid"
+
+.         local                   date_fields1 ""
+
+.         local                   datetime_fields1 "submissiondate star
+> ttime endtime"
+
+. 
+. * *******************************************************************
+> ***
+. * 1 (b) - Import data from primary .csv file
+. * *******************************************************************
+> ***
+.         import delimited using "`csvfile'", clear
+(27 vars, 191 obs)
+
+. 
+. * Drop extra table-list columns
+.                 cap drop reserved_name_for_field_*
+
+.                 cap drop generated_table_list_lab*
+
+. 
+. * Drop note fields (since they don't contain any real data)
+.         forvalues i = 1/100 {
+  2.                 if "`note_fields`i''" ~= "" {
+  3.                         drop `note_fields`i''
+  4.                 }
+  5.         }
+
+. 
+. * Format date and date/time fields
+.         forvalues i = 1/100 {
+  2.                 if "`datetime_fields`i''" ~= "" {
+  3.                         foreach dtvarlist in `datetime_fields`i'' 
+> {
+  4.                                 foreach dtvar of varlist `dtvarlis
+> t' {
+  5.                                         tempvar tempdtvar
+  6.                                         rename `dtvar' `tempdtvar'
+  7.                                         gen double `dtvar'=.
+  8.                                         cap replace `dtvar'=clock(
+> `tempdtvar',"MDYhms",2025)
+  9.                                         * automatically try withou
+> t seconds, just in case
+.                                         cap replace `dtvar'=clock(`te
+> mpdtvar',"MDYhm",2025) if `dtvar'==. & `tempdtvar'~=""
+ 10.                                         format %tc `dtvar'
+ 11.                                         drop `tempdtvar'
+ 12.                                 }
+ 13.                         }
+ 14.                 }
+ 15.                 if "`date_fields`i''" ~= "" {
+ 16.                         foreach dtvarlist in `date_fields`i'' {
+ 17.                                 foreach dtvar of varlist `dtvarlis
+> t' {
+ 18.                                         tempvar tempdtvar
+ 19.                                         rename `dtvar' `tempdtvar'
+ 20.                                         gen double `dtvar'=.
+ 21.                                         cap replace `dtvar'=date(`
+> tempdtvar',"MDY",2025)
+ 22.                                         format %td `dtvar'
+ 23.                                         drop `tempdtvar'
+ 24.                                 }
+ 25.                         }
+ 26.                 }
+ 27.         }
+(191 missing values generated)
+(191 missing values generated)
+(191 missing values generated)
+
+. 
+. * Ensure that text fields are imported as strings (with "" for missin
+> g values)
+. * Note that we treat calculate fields as text
+. 
+.         tempvar ismissingvar
+
+.         quietly: gen `ismissingvar'=.
+
+.         forvalues i = 1/100 {
+  2.                 if "`text_fields`i''" ~= "" {
+  3.                         foreach svarlist in `text_fields`i'' {
+  4.                                 foreach stringvar of varlist `svar
+> list' {
+  5.                                         quietly: replace `ismissin
+> gvar'=.
+  6.                                         quietly: cap replace `ismi
+> ssingvar'=1 if `stringvar'==.
+  7.                                         cap tostring `stringvar', 
+> format(%100.0g) replace
+  8.                                         cap replace `stringvar'=""
+>  if `ismissingvar'==1
+  9.                                 }
+ 10.                         }
+ 11.                 }
+ 12.         }
+
+.         quietly: drop `ismissingvar'
+
+.     
+. * Drop uninformative variables (missing because tablets were not GSM)
+. * and there were no comments
+.     drop    deviceid subscriberid simid devicephonenum username casei
+> d
+
+. 
+.     * Check if there are any saved comments, otherwise drop 
+.     capture {
+
+. 
+. * *******************************************************************
+> ***
+. * 1 (c) - Consolidate ID variable
+. * *******************************************************************
+> ***
+. 
+. * Consolidate unique ID into "key" variable
+.         replace             key = instanceid if key==""
+(0 real changes made)
+
+.         drop                instanceid
+
+. 
+. * *******************************************************************
+> ***
+. * 2 - Label & sort variables
+. * *******************************************************************
+> ***
+.         label           variable consent "Consent"
+
+. 
+.         label           variable key "Unique submission ID"
+
+.         cap label       variable submissiondate "Date/time submitted"
+
+. 
+.         label           variable enum "Enumerator"
+
+. 
+.         label           variable county "County"
+
+.         
+.     label           define county 3 "Homabay" 9 "Migori"
+
+.         label           values county county
+
+. 
+.         label           variable village "Village"
+
+. 
+.         label           variable hhid "Household ID"
+
+.     destring        hhid, replace
+hhid: all characters numeric; replaced as int
+
+. 
+.     label           variable dap "How much DAP did the participant or
+> der?"
+
+. 
+.         label           variable can "How much CAN did the participan
+> t order?"
+
+. 
+.         label           variable lime "How much lime did the particip
+> ant order?"
+
+. 
+.         label           variable duration "Duration"
+
+. 
+.         cap label       variable comments "Comments"
+
+.     
+.         label           variable starttime "Start Time"
+
+.         
+.     label           variable endtime "End Time"
+
+.     
+.     order           key hhid village county consent enum, first
+
+. 
+. * *******************************************************************
+> ***
+. * 3 - Add metadata and save
+. * *******************************************************************
+> ***
+. 
+. * Save data set
+.     customsave,         idvar(key) filename(mm_distribution)         
+>    ///
+>                         path($distribution/dataSets/intermediate)    
+>    ///
+>                         dofile(mm_distribution.do)                   
+>    ///
+>                         description("Distribution data, de-identified
+> ") ///
+>                         user(Emilia Tjernström)
+
+Observations in this data set are identified by key.  This data set was
+>  created with .do file mm_distribution.do  by user Emilia Tjernström 
+> using computer WFTB9Q03  | Last modified on 25 May 2020
+
+. 
+. * Generate a .csv file as well
+.     export      delimited                                            
+>        ///
+>                 "$distribution/dataSets/intermediate/mm_distribution.
+> csv"   ///
+>                 , replace
+(note: file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/distri
+> bution/dataSets/intermediate/mm_distribution.csv not found)
+file C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/distribution/
+> dataSets/intermediate/mm_distribution.csv saved
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:/Users/btje4229/Desktop/git/MahindiMaster/dataWork/distr
+> ibution/code/logs/mm_distribution.log
+  log type:  text
+ closed on:  25 May 2020, 16:04:06
+-----------------------------------------------------------------------
